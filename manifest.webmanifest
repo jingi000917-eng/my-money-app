@@ -1,0 +1,24 @@
+{
+  "name": "MY MONEY｜自分のお金と返済を見える化",
+  "short_name": "MY MONEY",
+  "description": "目標金額なしで、家計・返済・分割払いをプライベートに管理",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f5f8fc",
+  "theme_color": "#245be4",
+  "icons": [
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
