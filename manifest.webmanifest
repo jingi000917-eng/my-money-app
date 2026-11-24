@@ -1,7 +1,7 @@
 {
   "name": "MY MONEY｜自分のお金と返済を見える化",
   "short_name": "MY MONEY",
-  "description": "目標金額なしで、家計・返済・分割払いをプライベートに管理",
+  "description": "2026年12月からの返済・家計改善の成果、月別収支、食費分析を暗号化して管理",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

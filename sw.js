@@ -1,5 +1,11 @@
-const CACHE = 'mymoney-v0-2-cache1';
+const CACHE = 'mymoney-v1-1-cache1';
 const FILES = ['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
-self.addEventListener('install', e => e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
-self.addEventListener('activate', e => e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('mymoney-v')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
-self.addEventListener('fetch', e => { if(e.request.method !== 'GET'||new URL(e.request.url).origin!==location.origin)return; e.respondWith(fetch(e.request).then(res => {const copy=res.clone();if(res.ok)caches.open(CACHE).then(c=>c.put(e.request,copy));return res;}).catch(()=>caches.match(e.request))); });
+self.addEventListener('install',event=>event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(FILES)).then(()=>self.skipWaiting())));
+self.addEventListener('activate',event=>event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('mymoney-v')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener('fetch',event=>{
+  if(event.request.method!=='GET'||new URL(event.request.url).origin!==location.origin)return;
+  event.respondWith(fetch(event.request).then(res=>{
+    if(res.ok){const copy=res.clone();event.waitUntil(caches.open(CACHE).then(cache=>cache.put(event.request,copy)));}
+    return res;
+  }).catch(()=>caches.match(event.request)));
+});
