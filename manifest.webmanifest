@@ -1,24 +1,14 @@
 {
-  "name": "MY MONEY｜自分のお金と返済を見える化",
+  "name": "MY MONEY｜2026年12月からの成果と家計改善",
   "short_name": "MY MONEY",
-  "description": "2026年12月からの返済・家計改善の成果、月別収支、食費分析を暗号化して管理",
+  "description": "2026年12月からの返済・家計改善と明細ファイルの自動取込を端末内で暗号化管理",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f5f8fc",
   "theme_color": "#245be4",
   "icons": [
-    {
-      "src": "./icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "./icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
   ]
 }
