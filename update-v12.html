@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<meta http-equiv="Cache-Control" content="no-store">
+<title>MY MONEY 更新診断</title>
+<style>
+:root {font-family:system-ui,-apple-system,"Noto Sans JP",sans-serif;color:#172638;background:#f6f8fd}
+body{margin:0;padding:24px 15px;line-height:1.65}
+main{max-width:520px;margin:0 auto}
+h1{font-size:1.45rem;margin:0 0 8px}h2{font-size:1.1rem;margin:18px 0 9px}
+.box{border:1px solid #d9e1ef;background:white;border-radius:16px;padding:17px;margin:14px 0}
+.sub{color:#51627a;font-size:.92rem}.item{padding:8px 0;border-bottom:1px solid #eef1f5}.item:last-child{border-bottom:0}
+strong{font-weight:750}button{width:100%;border:0;border-radius:10px;background:#245be4;color:white;padding:14px;font-size:1rem;font-weight:700;cursor:pointer}button:disabled{opacity:.5}
+a{color:#245be4}small{color:#5b6a80}.tag{font-size:.9rem;color:#286449;font-weight:700}.warn{color:#8a5911}.error{color:#b52a30}
+</style>
+</head>
+<body>
+<main>
+<h1>MY MONEY 更新診断</h1>
+<p class="sub">Ver.1.2を公開したのにVer.1.1が出るときの確認・修復用ページです。預金・借入・返済などのデータには触れません。</p>
+<div class="box"><h2>配信状況のチェック</h2><div id="status">調査中…</div><button id="check" type="button" style="margin-top:12px;background:#536c95">再チェック</button></div>
+<div class="box"><h2>キャッシュだけを修復</h2><p class="sub">このサイトの <strong>MY MONEY用の一時キャッシュ</strong> とサービスワーカー登録だけを消去します。<strong>端末内の家計データ（localStorage/IndexedDB）は削除しません。</strong></p><p class="sub warn">念のため先にMY MONEYの「設定」から暗号化バックアップを保存してください。実施後、古いアプリ画面を閉じて再起動してください。</p><button id="repair" type="button">一時キャッシュを修復して開く</button><div id="result" class="sub" style="margin-top:9px" aria-live="polite"></div></div>
+<p class="sub">このページは外部サービスへ金融情報を送信しません。表示中のサイト内ファイルのバージョンとキャッシュ状態だけを確認します。</p>
+</main>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id), out=$('status'), result=$('result');
+const safe=(s)=>String(s).replace(/[&<>"']/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function check(){
+ $('check').disabled=true;out.textContent='最新ファイルを確認中…';
+ let parts=[];
+ try{
+   const req=new URL('./index.html',location.href);req.searchParams.set('verify',String(Date.now()));
+   const response=await fetch(req.href,{cache:'no-store',headers:{'Cache-Control':'no-cache'}});
+   const html=await response.text();
+   let version=html.includes('MY MONEY · VER 1.2')?'Ver.1.2':html.includes('MY MONEY · VER 1.1')?'Ver.1.1':html.includes('MY MONEY · VER 0.2')?'Ver.0.2':'判別できません';
+   parts.push(`<div class="item">配信されているindex.html：<strong class="${version==='Ver.1.2'?'tag':'warn'}">${safe(version)}</strong>（HTTP ${response.status}）</div>`);
+ }catch(err){parts.push(`<div class="item error">index.htmlを取得できません：${safe(err.message)}</div>`)}
+ try{
+   const req=new URL('./sw.js',location.href);req.searchParams.set('verify',String(Date.now()));
+   const res=await fetch(req.href,{cache:'no-store'}), txt=await res.text();
+   const name=txt.match(/mymoney-v\d+-\d+-cache\d+/)?.[0]||'判別できません';
+   parts.push(`<div class="item">最新の更新プログラム：<strong>${safe(name)}</strong></div>`);
+ }catch(err){parts.push(`<div class="item error">更新プログラム取得失敗：${safe(err.message)}</div>`)}
+ try{
+   const reg=await navigator.serviceWorker?.getRegistrations?.();
+   parts.push(`<div class="item">登録中の更新プログラム：${reg?.filter(r=>r.scope.startsWith(new URL('./',location.href).href)).length??'未対応'}件</div>`);
+ }catch(err){parts.push(`<div class="item">登録確認不可：${safe(err.message)}</div>`)}
+ try{
+   const keys=await caches?.keys?.();parts.push(`<div class="item">MY MONEY一時キャッシュ：${keys?.filter(k=>k.startsWith('mymoney-v')).length??'未対応'}件</div>`)
+ }catch(err){parts.push(`<div class="item">一時キャッシュ確認不可：${safe(err.message)}</div>`)}
+ out.innerHTML=parts.join('');$('check').disabled=false;
+}
+$('check').addEventListener('click',check);
+$('repair').addEventListener('click',async()=>{
+ if(!confirm('暗号化バックアップは保存しましたか？ MY MONEYの一時キャッシュとサービスワーカー登録のみを消去します。家計データは消しません。'))return;
+ $('repair').disabled=true;result.textContent='修復中…';
+ try{
+   let registrations=0,deleted=0;
+   if('serviceWorker' in navigator){const scope=new URL('./',location.href).href;for(const r of await navigator.serviceWorker.getRegistrations()){
+     if(r.scope.startsWith(scope)){await r.unregister();registrations++;}
+   }}
+   if('caches' in window){for(const key of await caches.keys()){
+     if(key.startsWith('mymoney-v')){if(await caches.delete(key))deleted++;}
+   }}
+   result.innerHTML=`<span class="tag">修復完了：</span>更新登録${registrations}件・一時キャッシュ${deleted}件。最新版へ移動します。`;
+   const next=new URL('./index.html',location.href);next.searchParams.set('reload',String(Date.now()));
+   setTimeout(()=>location.replace(next.href),1600);
+ }catch(err){result.textContent='修復できませんでした：'+err.message;$('repair').disabled=false;}
+});
+check();
+})();
+</script>
+</body>
+</html>
