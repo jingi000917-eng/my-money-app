@@ -43,32 +43,88 @@ function parseCardCSV(rows){const hi=findHeader(rows);if(hi<0)throw Error('「�
   if(bank){if(deposit!==null&&deposit>0){const cat=/給与|キュウヨ|給料|SALARY/.test(normalize(merchant))?'income':'unknown';entries.push({date,merchant,amount:deposit,method:'入金',cardholder:'',category:cat,confidence:cat==='income'?'medium':'low',sourceType:'bank'});}else if(outgoing!==null&&outgoing>0){ignored++;}else ignored++;continue;}
   if(value===null){ignored++;continue;}const method=idxMethod>=0?clean(cols[idxMethod]):'1回払い',cardholder=idxWho>=0?clean(cols[idxWho]):'';let cls=classify(merchant,value,method);if(value<0)cls={category:'unknown',confidence:'low'};entries.push({date,merchant,amount:value,method,cardholder,...cls,sourceType:'card'});}
  if(!entries.length)throw Error('取り込み可能な取引がありません。CSVの形式や文字コードを確認してください。');return {entries,ignored,type:bank?'bank':'card',bill:null};}
-function parsePDFLines(lines){let statementMonth=null,billAmount=null,payDate=null,head=lines.slice(0,80).join('\n');const matched=head.match(/(20\d{2})年\s*(\d{1,2})月\s*ご請求金額/);if(matched)statementMonth=matched[1]+'-'+matched[2].padStart(2,'0');
+function parsePDFLines(lines){let statementMonth=null,billAmount=null,payDate=null,head=lines.slice(0,80).join('\n');const matched=head.match(/(20\d{2})\s*年\s*(\d{1,2})\s*月\s*ご請求金額/);if(matched)statementMonth=matched[1]+'-'+matched[2].padStart(2,'0');
  // Bill total follows the heading, sometimes on a separate text line.
  if(matched){const at=head.indexOf(matched[0]),part=head.slice(at+matched[0].length,at+matched[0].length+280);const q=part.match(/([\d,]+)\s*円/);if(q)billAmount=amt(q[1]);}
  let dm=head.match(/(?:お支払日[\s\S]{0,80})?(20\d{2}\/\d{2}\/\d{2})\s+口座振替/);if(dm)payDate=dateFrom(dm[1]);
  const entries=[];let ignored=0,skippedInstallments=0,failed=0;
  for(const raw of lines){const line=clean(raw);if(!/^20\d{2}\/\d{2}\/\d{2}\s+/.test(line))continue;
  // A statement line needs the member and method markers; ignore explanatory lines, payments and footers.
- const m=line.match(/^(20\d{2}\/\d{2}\/\d{2})\s+(.+?)\s+(本人\*?|家族\*?|ETC\*?|本人|家族)\s+(1\s*回払い|一括払い|分割\S*|リボ払い|キャッシング\S*|分割変更\S*)\s+([\d,]+)(?:\s|$)/);
- if(!m){ignored++;continue;}const date=dateFrom(m[1]),merchant=clean(m[2]),cardholder=m[3],method=m[4],amount=amt(m[5]);if(!date||amount===null){failed++;continue;}
+ const m=line.match(/^(20\d{2}\/\d{2}\/\d{2})\s+(.+?)\s+(本人\s*\*?|家族\s*\*?|ETC\s*\*?)\s+(1\s*回払い|一括払い|分割\S*|リボ払い|キャッシング\S*|分割変更\S*)\s+([\d,]+)(?:\s|$)/);
+ const etc=!m?line.match(/^(20\d{2}\/\d{2}\/\d{2})\s+(ETCカード売上)\s+(1\s*回払い)\s+([\d,]+)(?:\s|$)/):null;
+ if(!m&&!etc){if(/分割変更|分割払い|リボ払い|キャッシング/.test(line))skippedInstallments++;ignored++;continue;}const date=dateFrom((m||etc)[1]),merchant=clean((m||etc)[2]),cardholder=m?m[3].replace(/\s+/g,''):'ETC',method=(m?m[4]:etc[3]).replace(/\s+/g,''),amount=amt(m?m[5]:etc[4]);if(!date||amount===null){failed++;continue;}
  const c=classify(merchant,amount,method);if(c.category==='installment')skippedInstallments++;
  entries.push({date,merchant,amount,method,cardholder,...c,sourceType:'card',billingMonth:statementMonth||null});
  }
  if(!entries.length)throw Error('明細行が抽出できませんでした。画像のみのPDFや、未対応のカード会社形式かもしれません。');
  return {type:'card',entries,ignored:ignored+failed,skippedInstallments,bill:billAmount!==null&&statementMonth?{month:statementMonth,amount:billAmount,payDate}:null};
 }
-async function readPDF(file){if(typeof document==='undefined')throw Error('PDFはブラウザで読み込んでください');if(!root.pdfjsLib){await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';s.crossOrigin='anonymous';s.onload=resolve;s.onerror=()=>reject(Error('PDF解析ライブラリを読み込めません。インターネット接続を確認してください。'));document.head.appendChild(s);});}
- const lib=root.pdfjsLib;if(!lib)throw Error('PDF解析ライブラリが読み込めません');lib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';const bytes=new Uint8Array(await file.arrayBuffer());const pdf=await lib.getDocument({data:bytes}).promise;let lines=[];
- for(let p=1;p<=pdf.numPages;p++){const page=await pdf.getPage(p),content=await page.getTextContent();const groups=[];
+// Offline text extraction for Rakuten/SVF statements with Shift-JIS (90ms-RKSJ-H).
+// Only used on the recognized SVF format; never interprets other PDFs as valid.
+function bytesToBinary(bytes){let out='';for(let i=0;i<bytes.length;i+=8192)out+=String.fromCharCode(...bytes.subarray(i,i+8192));return out;}
+function unescapePDFLiteral(str){return str.replace(/\\([0-7]{1,3}|.)/gs,(_,v)=>/^[0-7]/.test(v)?String.fromCharCode(parseInt(v,8)):({n:'\n',r:'\r',t:'\t',b:'\b',f:'\f'}[v]||v));}
+async function readRakutenSVF(bytes){
+ if(typeof DecompressionStream==='undefined')return null;
+ const raw=bytesToBinary(bytes);
+ if(!raw.includes('Created by SVF JavaPrint PDF Engine')||!raw.includes('90ms-RKSJ-H'))return null;
+ const pageLines=[],decoder=new TextDecoder('shift_jis');let streamCount=0;
+ const objects=raw.matchAll(/\b\d+\s+\d+\s+obj\b([\s\S]*?)endobj/g);
+ for(const obj of objects){const body=obj[1];if(!/\/Filter\s*\/FlateDecode/.test(body))continue;
+  const stream=body.match(/stream\r?\n([\s\S]*?)\r?\n?endstream/);if(!stream)continue;
+  try{
+   const compressed=Uint8Array.from(stream[1],c=>c.charCodeAt(0)&255);
+   const response=new Response(new Blob([compressed]).stream().pipeThrough(new DecompressionStream('deflate')));
+   const content=bytesToBinary(new Uint8Array(await response.arrayBuffer()));
+   const items=[];
+   for(const block of content.matchAll(/\bBT\b([\s\S]*?)\bET\b/g)){
+    const pos=block[1].match(/(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+Td/);
+    const txt=block[1].match(/\(((?:\\[\s\S]|[^\\)])*)\)\s*Tj/);
+    if(!pos||!txt)continue;
+    const binary=unescapePDFLiteral(txt[1]);const chars=decoder.decode(Uint8Array.from(binary,c=>c.charCodeAt(0)&255)).trim();
+    if(chars)items.push({x:Number(pos[1]),y:Number(pos[2]),str:chars});
+   }
+   if(!items.length)continue;
+   const groups=[];
+   for(const x of items){let group=groups.find(g=>Math.abs(g.y-x.y)<2.2);if(!group){group={y:x.y,items:[]};groups.push(group);}group.items.push(x);}
+   groups.sort((a,b)=>b.y-a.y);
+   for(const g of groups){g.items.sort((a,b)=>a.x-b.x);pageLines.push(g.items.map(x=>x.str).join(' '));}
+   streamCount++;
+  }catch(err){throw Error('楽天カードPDFの文字展開に失敗しました: '+(err.message||String(err)));}
+ }
+ if(!streamCount||!pageLines.some(x=>/ご利用明細|利用日/.test(x)))throw Error('楽天カードPDFの文字を抽出できませんでした。CSV明細もお試しください。');
+ const parsed=parsePDFLines(pageLines);parsed.pdfPages=streamCount;parsed.reader='楽天カードPDF・端末内解析';return parsed;
+}
+async function loadPdfLibrary(){
+ if(root.pdfjsLib)return root.pdfjsLib;
+ const hosts=['https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js','https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js','https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js'];
+ for(const url of hosts){try{
+   await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=url;s.crossOrigin='anonymous';s.onload=()=>root.pdfjsLib?resolve():reject(Error('ライブラリの初期化に失敗'));s.onerror=()=>reject(Error('CDNに接続できません'));document.head.appendChild(s);});
+   if(root.pdfjsLib)return root.pdfjsLib;
+  }catch{}
+ }
+ throw Error('PDF解析プログラムを取得できません。接続を確認するか、楽天カードのCSV明細を選択してください。');
+}
+async function readPDF(file){
+ if(typeof document==='undefined')throw Error('PDFはブラウザで読み込んでください');
+ const data=new Uint8Array(await file.arrayBuffer());
+ // Most Rakuten PDF statements made with SVF can be parsed without the internet.
+ const local=await readRakutenSVF(data);if(local)return local;
+ const lib=await loadPdfLibrary();
+ // Disable workers to avoid worker CDN/version mismatches on PWA updates.
+ let pdf;
+ try{pdf=await lib.getDocument({data,disableWorker:true,useSystemFonts:true}).promise;}
+ catch(e){throw Error('PDFを開けませんでした: '+(e.message||String(e)));}
+ const lines=[];
+ for(let p=1;p<=pdf.numPages;p++){const page=await pdf.getPage(p),content=await page.getTextContent(),groups=[];
   for(const item of content.items){const txt=String(item.str||'').trim();if(!txt)continue;const x=item.transform[4],y=item.transform[5];let group=groups.find(g=>Math.abs(g.y-y)<2.2);if(!group){group={y,items:[]};groups.push(group);}group.items.push({x,txt});}
   groups.sort((a,b)=>b.y-a.y);for(const g of groups){g.items.sort((a,b)=>a.x-b.x);lines.push(g.items.map(v=>v.txt).join(' '));}
  }
- const res=parsePDFLines(lines);res.pdfPages=pdf.numPages;return res;}
+ const res=parsePDFLines(lines);res.pdfPages=pdf.numPages;res.reader='PDF.js文字抽出';return res;
+}
 async function readText(file){const data=await file.arrayBuffer();const bytes=new Uint8Array(data),isUtf8=(()=>{try{new TextDecoder('utf-8',{fatal:true}).decode(bytes);return true;}catch{return false;}})();return new TextDecoder(isUtf8?'utf-8':'shift_jis').decode(bytes);}
 async function parseFile(file){if(!file||file.size<=0)throw Error('空のファイルです');if(file.size>8*1024*1024)throw Error('ファイルの上限は8MBです');const name=file.name.toLowerCase();let result;if(name.endsWith('.pdf'))result=await readPDF(file);else if(name.endsWith('.csv')||name.endsWith('.tsv')||name.endsWith('.txt'))result=parseCardCSV(parseCSV(await readText(file)));else throw Error('対応形式はPDFとCSVです。Excelの明細はCSVとして保存してから選択してください。');
  const digest=await crypto.subtle.digest('SHA-256',await file.arrayBuffer());result.hash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');result.filename=file.name;result.entries=result.entries.map((e,i)=>({...e,uid:result.hash.slice(0,20)+':'+i}));return result;}
 function monthTotals(entries){const months={};for(const e of entries){const m=e.date.slice(0,7);const x=months[m]||(months[m]={month:m,spend:0,unknown:0,transactions:0,category:{},income:0,excluded:0});x.transactions++;const n=Number(e.amount)||0;if(e.category==='income')x.income+=n;else if(e.sourceType==='bank'){x.unknown++;}else if(expenseKeys.has(e.category)){x.spend+=n;x.category[e.category]=(x.category[e.category]||0)+n;}else if(e.category==='unknown')x.unknown++;else x.excluded+=n;}return Object.values(months).sort((a,b)=>b.month.localeCompare(a.month));}
-root.MMYImporter={categories,labels,expenseKeys,excludedKeys,normalize,clean,dateFrom,amt,classify,parseCSV,parseCardCSV,parsePDFLines,readText,parseFile,monthTotals};
+root.MMYImporter={categories,labels,expenseKeys,excludedKeys,normalize,clean,dateFrom,amt,classify,parseCSV,parseCardCSV,parsePDFLines,readRakutenSVF,readText,parseFile,monthTotals};
 if(typeof module!=='undefined'&&module.exports)module.exports=root.MMYImporter;
 })(typeof window!=='undefined'?window:globalThis);
