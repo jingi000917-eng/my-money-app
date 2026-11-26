@@ -9,7 +9,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon-192.png" sizes="192x192">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <title>MY MONEY｜家計・返済管理 Ver.1.2</title>
+  <title>MY MONEY｜家計・返済管理 Ver.1.3</title>
   <style>
     :root { --ink:#182c45;--muted:#6b7b90;--paper:#f5f8fc;--panel:#fff;--line:#e0e7ef;--blue:#245be4;--blue2:#eaf0ff;--green:#078568;--gold:#b56d18;--red:#b73743;--shadow:0 12px 32px rgba(27,58,92,.07) }
     * {box-sizing:border-box}html {font-size:16px} body {margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;line-height:1.55} button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--blue)}.hidden{display:none!important} .container{max-width:740px;margin:0 auto;padding:0 16px 96px} .header{padding:22px 0 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.eyebrow{font-size:11px;letter-spacing:.12em;color:var(--muted);font-weight:750}.header h1{font-size:26px;line-height:1.25;letter-spacing:-.035em;margin:4px 0 0}.tag{font-size:12px;border-radius:999px;background:#eaf2ed;color:#227257;padding:5px 10px;white-space:nowrap}.subtext{font-size:12px;color:var(--muted)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow);margin-bottom:13px}.panel h2{font-size:16px;margin:0 0 10px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:22px 0 10px}.section-head h2{font-size:17px;margin:0}.overview{background:linear-gradient(132deg,#183a7b,#245be4);color:#fff;padding:22px;border:none}.overview .subtext{color:#d3defa}.big-number{font-size:36px;font-weight:830;letter-spacing:-.04em;margin:6px 0}.big-number .yen{font-size:19px;font-weight:600;margin-right:2px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:11px}.stat{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fff}.stat .label{color:var(--muted);font-size:12px}.stat strong{font-size:22px;display:block;margin-top:5px;letter-spacing:-.02em}.small-flag{display:inline-block;border-radius:100px;background:var(--blue2);color:var(--blue);font-size:11px;padding:3px 8px;font-weight:700}.warn-flag{background:#fff0e4;color:#9c5719}.account{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line);padding:16px 0}.account:first-of-type{border-top:0}.account-icon{width:41px;height:41px;border-radius:12px;display:grid;place-items:center;background:var(--blue2);font-size:21px;flex-shrink:0}.account-icon.card-icon{background:#e9f6f2}.account-content{flex:1;min-width:0}.account-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.account-name{font-size:14px;font-weight:750;overflow-wrap:anywhere}.account-balance{font-size:17px;font-weight:750;white-space:nowrap}.account-meta{color:var(--muted);font-size:12px;margin-top:4px;overflow-wrap:anywhere}.btn{border:1px solid var(--line);padding:10px 13px;background:white;color:var(--ink);border-radius:12px;font-weight:740;font-size:13px;min-height:42px}.btn:focus-visible,.nav-btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #a5bcff;outline-offset:2px}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.btn.ghost{background:var(--blue2);color:var(--blue);border-color:transparent}.btn.danger{color:var(--red)}.btn.full{width:100%}.btn:disabled{opacity:.52;cursor:not-allowed}.btn.sm{padding:7px 9px;min-height:33px;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.empty{padding:22px;text-align:center;background:#f8fafd;border:1px dashed #c7d2de;border-radius:14px;color:var(--muted);font-size:13px}.helper{border-radius:13px;background:#eef4ff;color:#385577;padding:12px 13px;font-size:12px;margin:12px 0}.hint{font-size:12px;color:var(--muted);margin-top:6px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin-bottom:14px}.field.full{grid-column:1/-1}.field label{display:block;font-size:12px;font-weight:720;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;background:white;color:var(--ink);border:1px solid #cbd6e5;border-radius:11px;padding:11px 12px;min-height:44px}.field textarea{min-height:85px;resize:vertical}.field .hint{line-height:1.5}.form-grid .field{margin:0}.tabs,.nav{display:flex}.tabs{margin-bottom:16px;gap:8px;overflow:auto}.tab{border:1px solid var(--line);border-radius:99px;padding:8px 15px;background:#fff;color:var(--muted);font-size:13px;font-weight:750;white-space:nowrap}.tab.active{background:var(--blue);border-color:var(--blue);color:#fff}.bottom-nav{position:fixed;bottom:0;left:0;right:0;padding:7px 0 calc(7px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);z-index:5}.bottom-nav .nav-inner{display:grid;grid-template-columns:repeat(5,1fr);max-width:740px;margin:auto}.nav-btn{border:0;background:transparent;color:#708099;padding:7px 2px;display:flex;align-items:center;flex-direction:column;gap:2px;font-size:10px;font-weight:700}.nav-btn.active{color:var(--blue)}.nav-symbol{font-size:19px;line-height:1.4}.record{border-top:1px solid var(--line);padding:12px 0;display:flex;justify-content:space-between;gap:12px}.record:first-of-type{border:0}.record-title{font-size:13px;font-weight:750}.record .amount{font-size:16px;font-weight:750;text-align:right;white-space:nowrap}.disclaimer{color:var(--muted);font-size:12px;line-height:1.65;margin:12px 0}.modal-wrap{position:fixed;inset:0;background:#132640a6;z-index:12;display:flex;align-items:flex-end;justify-content:center}.modal{background:white;width:100%;max-width:720px;border-radius:22px 22px 0 0;max-height:92vh;overflow:auto;padding:20px 18px calc(24px + env(safe-area-inset-bottom))}.modal-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:10px}.modal-header h2{font-size:19px;margin:0}.close{border:0;background:#eef2f7;border-radius:999px;width:34px;height:34px;font-size:20px}.modal-footer{display:flex;gap:9px;margin-top:18px}.modal-footer .btn{flex:1}.login-wrap{min-height:100dvh;display:grid;place-items:center;padding:24px 17px}.login-box{width:100%;max-width:440px;background:white;border:1px solid var(--line);border-radius:25px;padding:28px 20px;box-shadow:var(--shadow)}.login-box h1{font-size:29px;letter-spacing:-.035em;margin:7px 0 12px}.login-box p{font-size:13px;color:var(--muted);line-height:1.8}.logo{background:var(--blue2);color:var(--blue);border-radius:18px;display:grid;place-items:center;height:58px;width:58px;font-size:28px}.notice{background:#fff5e9;border-radius:12px;color:#93601f;font-size:12px;padding:12px;margin:13px 0}.error{background:#ffedf0;color:var(--red);border-radius:10px;padding:10px;font-size:12px;margin:12px 0}.tiny{font-size:11px;color:var(--muted)}.pill{display:inline-block;background:#eef3f9;border-radius:100px;color:#51667d;padding:4px 8px;font-size:11px}.splitting{padding:11px 0;border-top:1px solid var(--line)}.splitting .line-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.splitting p{font-size:12px;color:var(--muted);margin:4px 0}.compact-title{font-size:13px;font-weight:700}.foot-note{padding:12px 0 0;color:var(--muted);font-size:11px}.skip{color:var(--muted);font-size:12px}.money-pos{color:var(--green)}.alert{color:var(--red)}.mb8{margin-bottom:8px}.mt8{margin-top:8px}
@@ -67,13 +67,37 @@
     /* v1.2 statement upload */
     .import-head{background:linear-gradient(135deg,#eef5ff,#eef9f4);border-color:#cddfe8}.import-drop{border:2px dashed #b8cce3;border-radius:16px;padding:20px;text-align:center;background:#f8fbff;margin-top:13px}.import-drop .btn{margin-top:9px}.import-lines{border:1px solid var(--line);border-radius:13px;max-height:440px;overflow-y:auto}.import-item{padding:10px 11px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:flex-start;justify-content:space-between}.import-item:last-child{border-bottom:0}.import-item .title{font-size:12px;font-weight:750;overflow-wrap:anywhere}.import-item .meta{font-size:11px;color:var(--muted)}.import-item .col{min-width:0;flex:1}.import-item .amount{text-align:right;font-weight:800;font-size:13px;white-space:nowrap}.import-item select{width:145px;max-width:40vw;border:1px solid #becbd9;border-radius:9px;background:white;padding:7px;font-size:11px;margin-top:5px}.import-controls{display:flex;gap:8px;justify-content:flex-end;flex-wrap:wrap;margin-top:12px}.import-summary{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.import-summary>div{padding:11px;border-radius:11px;background:#f5f8fc}.import-summary span{display:block;color:var(--muted);font-size:11px}.import-summary strong{font-size:19px}.import-month{border-top:1px solid var(--line);padding:11px 0}.import-month:first-child{border:0}.import-bar{display:flex;gap:4px;height:8px;margin-top:6px;background:#edf2f8;border-radius:30px;overflow:hidden}.import-bar span{background:#3e9780;height:100%;display:block}.import-warning{border-left:3px solid #dd9c3a;background:#fff7e8;padding:9px 11px;border-radius:0 10px 10px 0;font-size:12px}.import-results{font-size:11px;color:var(--muted);margin-top:4px}.import-panel-actions{display:flex;justify-content:space-between;gap:8px;align-items:center}.import-bill{display:block;margin-top:10px;padding:10px;border:1px solid #e6e4d4;background:#fffcf0;border-radius:12px;font-size:12px}.import-file{display:flex;justify-content:space-between;align-items:start;gap:8px;padding:9px 0;border-top:1px solid var(--line);font-size:12px}.import-file:first-child{border:0}.import-file span{overflow-wrap:anywhere}.import-muted{color:var(--muted);font-size:11px}.import-error{font-size:12px;color:var(--red)}
     @media(max-width:420px){.import-item select{width:129px}.import-summary strong{font-size:16px}}
+  
+    /* v1.3 encrypted local payment conversation */
+    .chat-home{background:linear-gradient(155deg,#f2f7ff,#fff);border-color:#ceddf4}
+    .chat-title{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:4px}
+    .chat-title h2{margin:0;font-size:17px}
+    .chat-subtitle{font-size:11px;color:var(--muted);margin:0 0 10px}
+    .chat-log{max-height:245px;overflow:auto;display:flex;flex-direction:column;gap:8px;padding:2px 1px 8px}
+    .chat-line{max-width:94%;padding:10px 12px;border-radius:14px;font-size:13px;overflow-wrap:anywhere;white-space:pre-wrap;line-height:1.6}
+    .chat-line.mine{align-self:flex-end;color:#fff;background:#245be4;border-bottom-right-radius:4px}
+    .chat-line.helper-bubble{align-self:flex-start;background:#fff;border:1px solid #dfe7f1;border-bottom-left-radius:4px}
+    .chat-line small{display:block;font-size:10px;opacity:.73;margin-top:3px}
+    .chat-send{display:flex;gap:7px;margin-top:8px;align-items:stretch}
+    .chat-send input{flex:1;width:1%;min-width:0;min-height:47px;border:1px solid #c7d5e8;border-radius:12px;padding:10px 12px;background:#fff;font-size:14px}
+    .chat-send .btn{flex:0 0 auto}
+    .chat-paid{margin:10px 0 0;padding:10px;background:#f7fbff;border:1px solid #deebf8;border-radius:12px}
+    .chat-paid-title{font-size:12px;font-weight:750;margin-bottom:6px}
+    .chat-paid-row{display:flex;align-items:center;justify-content:space-between;gap:8px;border-top:1px solid #e6edf6;padding:7px 0;font-size:12px}
+    .chat-paid-row:first-of-type{border-top:0}
+    .chat-paid-row span{min-width:0;overflow-wrap:anywhere}
+    .chat-paid-row button{border:0;background:transparent;color:#9e3641;text-decoration:underline;font-size:11px;flex-shrink:0;padding:5px}
+    .chat-chips{display:flex;gap:6px;margin-top:6px;flex-wrap:wrap}
+    .chat-chip{border-radius:99px;background:#eaf1ff;color:#245be4;border:1px solid #d7e4fd;padding:6px 9px;font-size:11px;cursor:pointer}
+    .chat-note{font-size:10px;color:var(--muted);margin-top:8px}
+    @media(max-width:390px){.chat-home{padding:14px}.chat-send .btn{padding:8px 11px}.chat-line{max-width:96%}}
   </style>
 </head>
 <body>
   <main id="login" class="login-wrap">
     <div class="login-box">
       <div class="logo">◈</div>
-      <div class="eyebrow" style="margin-top:18px">PRIVATE MONEY DASHBOARD · V1.1</div>
+      <div class="eyebrow" style="margin-top:18px">PRIVATE MONEY DASHBOARD · V1.3</div>
       <h1>MY MONEY</h1>
       <p id="login-desc">自分のペースで、返済を見える化。<br>最初に保存用のパスフレーズを設定します。</p>
       <form id="login-form">
@@ -92,9 +116,10 @@
   <div id="app" class="hidden">
     <div class="container">
       <header class="header">
-        <div><div class="eyebrow">MY MONEY · VER 1.2</div><h1 id="page-title">財務ダッシュボード</h1><div class="subtext">2026年12月からの改善を記録</div></div>
+        <div><div class="eyebrow">MY MONEY · VER 1.3</div><h1 id="page-title">財務ダッシュボード</h1><div class="subtext">2026年12月からの改善を記録</div></div>
         <span class="tag">🔒 端末内保存</span>
       </header>
+      <div id="quick-chat" aria-label="支払報告のメッセージ欄"></div>
       <div id="content" aria-live="polite"></div>
     </div>
     <nav class="bottom-nav" aria-label="画面の切り替え"><div class="nav-inner">
@@ -177,7 +202,7 @@
     const blankData = () => ({schema:1,createdAt:new Date().toISOString(),accounts:[
       {id:'card-1',kind:'card',name:'クレジットカード 1',dueDay:null,note:'',items:[]},
       ...[1,2,3].map(i=>({id:'loan-'+i,kind:'loan',name:'カードローン '+i,dueDay:null,balance:null,monthly:null,apr:null,note:''}))
-    ],payments:[],finance:blankFinance(),updatedAt:new Date().toISOString()});
+    ],payments:[],finance:blankFinance(),chatMessages:[],paymentChecks:[],updatedAt:new Date().toISOString()});
     let state = null, encryptionKey = null, salt = null, pendingSave = Promise.resolve(), page='home', editing=null, idleTimer;
     const nowLocal = () => {const d=new Date(); return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;};
     const safeNumber = value => value==='' || value===null || value===undefined ? null : Number(value);
@@ -233,6 +258,127 @@
       if(!state.finance)state.finance=blankFinance();
       $('#login').classList.add('hidden');$('#app').classList.remove('hidden');page='home';render();resetIdle();
     }
+
+    // Lightweight rule-based local conversation. NOT an external AI chat service.
+    const chatPaidKinds=[
+      {key:'rakuten',label:'楽天カード',rx:/楽天\s*(?:カード|ｶｰﾄﾞ)|楽天(?:の)?請求/i},
+      {key:'insurance-study',label:'学資保険',rx:/学資保険/},
+      {key:'insurance-car',label:'自動車保険',rx:/自動車保険|車の保険/},
+      {key:'insurance-life',label:'生命・医療保険',rx:/生命保険|医療保険|生保/},
+      {key:'insurance-general',label:'保険（種類未指定）',rx:/保険/},
+      {key:'mortgage',label:'住宅ローン',rx:/住宅ローン/},
+      {key:'free-loan',label:'フリーローン',rx:/フリーローン/},
+      {key:'utilities-power',label:'電気代',rx:/電気代|電気料金/},
+      {key:'utilities-gas',label:'ガス代',rx:/ガス代|ガス料金/},
+      {key:'utilities-water',label:'水道代',rx:/水道代|水道料金/},
+      {key:'mobile',label:'携帯・通信費',rx:/携帯代|携帯料金|通信費|スマホ代/}
+    ];
+    function chatMonth(text){
+      const now=nowLocal(),ym=now.slice(0,7);
+      const m=String(text).match(/(?:(20\d{2})年)?\s*(1[0-2]|0?[1-9])月(?:分)?/);
+      if(!m)return ym;
+      const month=Number(m[2]);
+      // Without an explicit year use the closest past month, never a future billing month.
+      let y=m[1]?Number(m[1]):Number(now.slice(0,4));
+      if(!m[1]&&month>Number(now.slice(5,7)))y--;
+      return y+'-'+String(month).padStart(2,'0');
+    }
+    function chatFindKinds(text){
+      const match=chatPaidKinds.filter(x=>x.rx.test(text));
+      const keys=new Set(match.map(x=>x.key));
+      if([...keys].some(k=>k.startsWith('insurance-')&&k!=='insurance-general'))keys.delete('insurance-general');
+      return match.filter(x=>keys.has(x.key));
+    }
+    function chatClean(){
+      if(!Array.isArray(state.chatMessages))state.chatMessages=[];
+      if(!Array.isArray(state.paymentChecks))state.paymentChecks=[];
+    }
+    function chatReply(userText){
+      chatClean();
+      const now=new Date().toISOString(),text=userText.trim(),month=chatMonth(text);
+      const paid=/(?:払(?:った|いました|ったよ|い済み|い終えた)|支払(?:った|いました|済み|い済み|い完了)|引き落と(?:された|し済み)|引落(?:された|済み)|決済(?:した|済み)|振り込(?:んだ|み済み))/.test(text) && !/[?？]/.test(text);
+      const kinds=chatFindKinds(text);
+      const newItems=[],existing=[];
+      let reply='';
+      const specifiedIns=kinds.filter(x=>x.key.startsWith('insurance-')&&x.key!=='insurance-general');
+      const generalIns=state.paymentChecks.find(x=>x.key==='insurance-general'&&x.month===month&&x.status==='paid');
+      if(!paid && specifiedIns.length && generalIns && /(?:保険|生保)/.test(text)){
+        state.paymentChecks=state.paymentChecks.filter(x=>x.id!==generalIns.id);
+        for(const kind of specifiedIns){
+          if(!state.paymentChecks.some(x=>x.month===month&&x.key===kind.key))
+            state.paymentChecks.push({id:randomId(),key:kind.key,label:kind.label,month,status:'paid',confirmedAt:now});
+        }
+        reply=monthName(month)+'分の「保険（種類未指定）」を「'+specifiedIns.map(x=>x.label).join('」「')+'」に修正したよ。支払金額は未登録のままだよ。';
+      }else if(paid && kinds.length){
+        if(specifiedIns.length && generalIns){
+          state.paymentChecks=state.paymentChecks.filter(x=>x.id!==generalIns.id);
+        }
+        for(const kind of kinds){
+          const old=state.paymentChecks.find(x=>x.key===kind.key&&x.month===month&&x.status==='paid');
+          if(old){existing.push(kind.label);continue;}
+          state.paymentChecks.push({id:randomId(),key:kind.key,label:kind.label,month,status:'paid',confirmedAt:now});
+          newItems.push(kind.label);
+        }
+        const prefix=`${monthName(month)}分：`;
+        reply=(newItems.length?prefix+'「'+newItems.join('」「')+'」を支払済みとして記録したよ。':'')+
+          (existing.length?'「'+existing.join('」「')+'」はすでに支払済みで記録してあるよ。':'');
+        if(kinds.some(x=>x.key==='insurance-general'))reply+=' 保険の種類はまだ未指定だよ。';
+        reply+=' 金額や元金・利息の内訳は未確認なので、支出額や借入残高は変更していないよ。';
+      }else if(/(?:支払状況|支払い状況|何(?:を|が)払|支払済み(?:は|を|一覧)|支払い一覧)/.test(text)){
+        const paidItems=state.paymentChecks.filter(x=>x.month===month&&x.status==='paid');
+        reply=paidItems.length?monthName(month)+'の支払済み：'+paidItems.map(x=>x.label).join('、')+'。':'まだ'+monthName(month)+'分の支払済み記録はないよ。';
+      }else if(/(?:取り消|削除|間違えた|訂正)/.test(text)){
+        reply='支払済み記録を取り消すときは、下の一覧の「取消」を押してね。金額や残高は変更しないよ。';
+      }else if(paid){
+        reply='支払ったというメモは残したよ。ただし支払先を判別できなかったので、支払済み一覧にはまだ反映していないよ。「楽天カード11月分払った」など、支払先も書いてね。';
+      }else{
+        reply='メモとして保存したよ。支払いの報告なら「楽天カード11月分払った」のように伝えてね。これは端末内の簡易応答で、ChatGPTとの自動会話ではないよ。';
+      }
+      state.chatMessages.push({id:randomId(),role:'user',text,at:now},{id:randomId(),role:'assistant',text:reply,at:now});
+      state.chatMessages=state.chatMessages.slice(-80);
+      state.paymentChecks=state.paymentChecks.slice(-240);
+      return reply;
+    }
+    function chatPanel(){
+      chatClean();
+      const messages=state.chatMessages.slice(-6);
+      const paid=state.paymentChecks.filter(x=>x&&x.status==='paid').slice(-6).reverse();
+      const feed=messages.length?messages.map(m=>`<div class="chat-line ${m.role==='user'?'mine':'helper-bubble'}">${esc(m.text||'')}<small>${esc((m.at||'').slice(0,10))}</small></div>`).join(''):
+        '<div class="chat-line helper-bubble">支払いの報告をどうぞ！ 例：「保険と楽天カードの11月分払ったよ」。金額が不明でも、支払済みとしてメモできるよ。</div>';
+      const paidRows=paid.map(x=>`<div class="chat-paid-row"><span>✓ ${esc(monthName(x.month))}　${esc(x.label)}</span><button type="button" data-chat-delete="${esc(x.id)}">取消</button></div>`).join('');
+      return `<section class="panel chat-home"><div class="chat-title"><h2>💬 家計メッセージ</h2><span class="pill">端末内に暗号化保存</span></div>
+        <p class="chat-subtitle">払ったものを話すように記録。金額不明なら完了メモだけにするよ。</p>
+        <div class="chat-log" role="log" aria-live="polite">${feed}</div>
+        <form id="chat-form" class="chat-send"><input name="chatText" id="chat-text" maxlength="240" autocomplete="off" aria-label="支払い報告を入力" placeholder="例：保険と楽天カードの11月分払ったよ" required><button type="submit" class="btn primary">送信</button></form>
+        <div class="chat-chips"><button type="button" class="chat-chip" data-chat-preset="11月の支払状況を教えて">支払状況を確認</button><button type="button" class="chat-chip" data-chat-preset="楽天カード11月分払ったよ">入力例</button></div>
+        ${paid.length?`<div class="chat-paid"><div class="chat-paid-title">支払済みメモ（最新${paid.length}件）</div>${paidRows}</div>`:''}
+        <p class="chat-note">※ この会話はルールに基づく簡易応答で、ChatGPTとは接続していません。支払済みメモは借入返済の元金・利息・カード請求額を自動計上しません。</p></section>`;
+    }
+    function bindChat(){
+      const box=$('#quick-chat');
+      if(!box)return;
+      box.innerHTML=chatPanel();
+      const form=$('#chat-form',box), input=$('#chat-text',box);
+      form.addEventListener('submit',async event=>{
+        event.preventDefault();
+        const t=input.value.trim();if(!t)return;
+        if(t.length>240){msg('240文字以内で入力してください');return;}
+        input.disabled=true;
+        chatReply(t);
+        await save();render();
+        const log=$('.chat-log',$('#quick-chat'));if(log)log.scrollTop=log.scrollHeight;
+      });
+      $$('[data-chat-preset]',box).forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.chatPreset;input.focus();}));
+      $$('[data-chat-delete]',box).forEach(b=>b.addEventListener('click',async()=>{
+        const item=state.paymentChecks.find(x=>x.id===b.dataset.chatDelete);
+        if(!item||!confirm(`${monthName(item.month)}の「${item.label}」を支払済み記録から取り消しますか？`))return;
+        state.paymentChecks=state.paymentChecks.filter(x=>x.id!==item.id);
+        state.chatMessages.push({id:randomId(),role:'assistant',text:`${monthName(item.month)}分の「${item.label}」の支払済み記録を取り消したよ。`,at:new Date().toISOString()});
+        state.chatMessages=state.chatMessages.slice(-80);
+        await save();render();
+      }));
+    }
+
     function resultsSummary(){
       const items=(state.payments||[]).filter(p=>p && typeof p.date==='string' && p.date.slice(0,7)>=RESULTS_START);
       const totalPrincipal=total(items.map(p=>p.principal));
@@ -301,7 +447,7 @@
     function accountRow(a,edit=true){return `<div class="account"><div class="account-icon ${a.kind==='card'?'card-icon':''}">${a.kind==='card'?'▣':'◉'}</div><div class="account-content"><div class="account-top"><div class="account-name">${esc(a.name)}</div><div class="account-balance">${registered(a)?money(principal(a)):'未入力'}</div></div><div class="account-meta">${esc(a.kind==='card'?cardSummary(a):loanSummary(a))}</div></div>${edit?`<button class="btn sm" data-edit-account="${esc(a.id)}">編集</button>`:''}</div>`;}
     function render(){resetIdle();$('#page-title').textContent=({home:'2026年12月からの成果',budget:'家計・収支の見通し',debts:'借入登録',payments:'返済記録',settings:'設定・バックアップ',expenses:'支出の見える化',import:'明細の自動取込'})[page];$$('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.page===(page==='expenses'?'budget':page)));const target=$('#content');
       if(page==='home')renderHome(target);if(page==='budget')renderBudget(target);if(page==='expenses')renderExpenses(target);if(page==='debts')renderDebts(target);if(page==='payments')renderPayments(target);if(page==='settings')renderSettings(target);if(page==='import')renderImport(target);
-      bindPage(target);
+      bindPage(target);bindChat();
     }
     function renderHome(el){const set=state.accounts.filter(registered),sum=total(set.map(principal)),m=total(set.map(monthly)),missing=state.accounts.length-set.length,all=state.accounts.length;
       const p=state.payments;const ym=nowLocal().slice(0,7);const thisMonth=p.filter(x=>x.date.startsWith(ym));const paid=total(thisMonth.map(x=>x.principal));const charges=total(thisMonth.map(x=>x.interest+x.fee));
@@ -328,7 +474,7 @@
       const known=forecast.filter(x=>x.known),monthlyPositive=known.filter(x=>x.delta>=0).length;
       el.innerHTML=`<section class="panel overview"><div class="subtext">2026年12月からの改善｜収入・支出・返済を整理</div><h2 style="font-size:25px;margin:8px 0 12px;color:white">毎月の収支を整える</h2><div class="subtext">毎月の収支差額と返済の成果だけを確認します。</div><div class="finance-actions"><button class="btn" id="edit-finance">家計の数字を編集</button><button class="btn" id="import-consult-budget">初期データを読込</button><button class="btn" data-page-go="expenses">食費・支出分析 →</button></div></section>
         <section class="panel"><h2>月間の支出構造</h2><div class="money-grid"><div class="money-tile"><span>給与手取り（設定値）</span><strong>${yenVal(f.salary)}</strong></div><div class="money-tile"><span>固定費・税金・年間積立の月平均</span><strong>${money(Math.round(c.fixed))}</strong></div><div class="money-tile wide"><span>普段のカード新規利用（FX・競馬・会社立替を除く推定）</span><strong>${cardRange}</strong><div class="label-muted">過去の分割・キャッシング返済は含めません。ガソリン・楽天ペイチャージ・日常のカード支払いを含めます。ふるさと納税の積立を別に行うなら、寄付額は重ねません。</div></div></div><div class="splitting"><div class="line-top"><strong>既存カード返済前の月次余力</strong><strong class="${lowSurplus!==null&&lowSurplus<0?'alert':'money-pos'}">${lowSurplus===null?'未算定':moneySigned(Math.round(lowSurplus))} 〜 ${highSurplus===null?'未算定':moneySigned(Math.round(highSurplus))}</strong></div><p>これは収支の参考値であり、自由に使える金額ではありません。既存カードの支払いも別途必要です。</p></div></section>
-        <section class="panel"><div class="section-head" style="margin:0 0 6px"><h2>12か月の月次収支見通し</h2><span class="subpill">Ver.1.2</span></div><div class="forecast-switch" role="group" aria-label="収支シナリオ">${sr('low','慎重')}${sr('base','基準')}${sr('high','余裕')}</div><p class="scenario-detail">${scenarioTitle}シナリオ：給与 ${forecast.length?money(forecast[0].salary):'未入力'}／月・新規カード ${forecast.length?money(forecast[0].regular):'未入力'}／月。既存カードの支払予定は最新明細と照合して更新してください。未確認月は0円とみなしません。</p>
+        <section class="panel"><div class="section-head" style="margin:0 0 6px"><h2>12か月の月次収支見通し</h2><span class="subpill">Ver.1.3</span></div><div class="forecast-switch" role="group" aria-label="収支シナリオ">${sr('low','慎重')}${sr('base','基準')}${sr('high','余裕')}</div><p class="scenario-detail">${scenarioTitle}シナリオ：給与 ${forecast.length?money(forecast[0].salary):'未入力'}／月・新規カード ${forecast.length?money(forecast[0].regular):'未入力'}／月。既存カードの支払予定は最新明細と照合して更新してください。未確認月は0円とみなしません。</p>
           <div class="money-grid" style="margin-top:11px"><div class="money-tile"><span>翌月の新規カード利用の収支均衡目安</span><strong>${limits===null?'未算定':money(Math.round(limits))}</strong><div class="label-muted">既存支払い込み。既に使った額は未反映</div></div><div class="money-tile"><span>収支差額を計算できる月</span><strong>${known.length}か月／12か月</strong><div class="label-muted">うち試算上の黒字月：${monthlyPositive}か月</div></div></div>
           <div class="status-note">月ごとの給与・固定費・通常カード新規利用・既存カード請求の<strong>差額だけ</strong>を表示します。金融口座の実際の増減ではなく、ボーナス返済の実際の月・会社立替の精算タイミング・カード請求月のずれは未反映です。ふるさと納税積立は実際の毎月引落しではありません。</div>
           <div class="actions" style="margin:14px 0"><button class="btn primary" id="edit-card-schedule">12か月のカード支払予定を編集</button></div>
@@ -482,7 +628,7 @@
       return db;
     };
     function importMonths(){return moneyImport?moneyImport.monthTotals(importState().entries):[];}
-    function renderImportHome(){const db=importState(),totals=importMonths(),last=totals[0];return `<section class="panel"><div class="section-head" style="margin:0 0 8px"><h2>ファイルから自動集計</h2><span class="subpill">Ver.1.2</span></div>
+    function renderImportHome(){const db=importState(),totals=importMonths(),last=totals[0];return `<section class="panel"><div class="section-head" style="margin:0 0 8px"><h2>ファイルから自動集計</h2><span class="subpill">Ver.1.3</span></div>
       <p class="disclaimer">楽天カードPDF・CSV、給与入金CSVの取り込みに対応。食費やカードの利用内訳を反映します。借入残高や返済履歴は勝手に変更しません。</p>
       ${last?`<div class="money-grid"><div class="money-tile"><span>${esc(monthName(last.month))}・分類済み新規利用（取込分のみ）</span><strong>${money(last.spend)}</strong></div><div class="money-tile"><span>未分類の取引</span><strong>${last.unknown}件</strong></div></div>`:`<div class="helper">まだ明細は読み込まれていません。ファイルを選んで自動分類を始めましょう。</div>`}
       <div class="actions mt8"><button class="btn primary" data-page-go="import">＋ 明細ファイルを読み込む</button></div></section>`;}
@@ -560,7 +706,7 @@
 
     function renderSettings(el){el.innerHTML=`<section class="panel"><h2>明細ファイルを自動で反映</h2><p class="disclaimer">楽天カードPDF・CSV、銀行の給与入金CSVなどから支出を自動分類。取引の確認後に、端末内へ暗号化して保存します。</p><button class="btn primary full" data-page-go="import">明細ファイルを読み込む →</button></section><section class="panel"><h2>コンサル結果を反映</h2><p class="disclaimer">このアプリ本体に個人の家計数値は含みません。専用の診断JSONを端末から読み込み、暗号化して保存します。<strong>診断JSONは暗号化されていないため、GitHub等へアップロードしないでください。</strong></p><button class="btn primary full" id="import-consult">診断データ（JSON）を取り込む</button></section><section class="panel"><h2>食費・生活費の分析データ</h2><p class="disclaimer">家計の分析値と実振込履歴を追加できます。プライベートなJSONはGitHubへ上げないでください。</p><button class="btn ghost full" data-page-go="expenses">支出の見える化を開く →</button></section><section class="panel"><h2>バックアップと復元</h2><p class="disclaimer">保存データは暗号化され、このブラウザ内だけに保持されます。ブラウザの閲覧データ消去・端末故障・機種変更に備えて、バックアップファイルを保存してください。</p><div class="actions"><button class="btn primary" id="backup">暗号化バックアップを保存</button><button class="btn" id="restore">バックアップを復元</button></div><div class="notice"><strong>重要：</strong>バックアップは暗号化されていますが、復元には作成時のパスフレーズが必要です。パスフレーズ自体は保存されません。</div></section>
       <section class="panel"><h2>プライバシー</h2><p class="disclaimer">アプリの実行時に金融情報をサーバーへ送信しません。金融機関との接続、広告・アクセス解析もありません。データはこの端末のこのブラウザ（このサイトの保存領域）にのみ保存します。GitHubにコードを置いても、入力データは自動的にGitHubへ保存されません。</p><button class="btn" id="lock">画面をロックする</button></section>
-      <section class="panel"><h2>データ全消去</h2><p class="disclaimer">端末の保存情報を削除すると、復元できません。必要なら先にバックアップしてください。</p><button class="btn danger" id="wipe">この端末のデータを削除</button></section><p class="foot-note">Ver.1.2：2026年12月からの成果＋返済管理＋12か月の収支見通し＋支出分析。口座連携・自動同期・FX取引機能はありません。</p>`;
+      <section class="panel"><h2>データ全消去</h2><p class="disclaimer">端末の保存情報を削除すると、復元できません。必要なら先にバックアップしてください。</p><button class="btn danger" id="wipe">この端末のデータを削除</button></section><p class="foot-note">Ver.1.3：2026年12月からの成果＋返済管理＋12か月の収支見通し＋支出分析。口座連携・自動同期・FX取引機能はありません。</p>`;
     }
     function bindPage(el){$$('[data-page-go]',el).forEach(b=>b.addEventListener('click',()=>{page=b.dataset.pageGo;render();window.scrollTo(0,0)}));$$('[data-edit-account]',el).forEach(b=>b.addEventListener('click',()=>editAccount(b.dataset.editAccount)));$$('[data-add-item]',el).forEach(b=>b.addEventListener('click',()=>editItem(b.dataset.addItem,null)));$$('[data-edit-item]',el).forEach(b=>b.addEventListener('click',()=>editItem('card-1',b.dataset.editItem)));
       $('#edit-progress-month',el)?.addEventListener('click',editProgressMonth);$('#edit-progress-month-bottom',el)?.addEventListener('click',editProgressMonth);$('#add-payment',el)?.addEventListener('click',addPayment);$$('[data-delete-payment]',el).forEach(b=>b.addEventListener('click',()=>deletePayment(b.dataset.deletePayment)));
