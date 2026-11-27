@@ -9,7 +9,7 @@
   <link rel="manifest" href="./manifest.webmanifest">
   <link rel="icon" href="./icon-192.png" sizes="192x192">
   <meta name="robots" content="noindex,nofollow,noarchive">
-  <title>MY MONEY｜家計・返済管理 Ver.1.5</title>
+  <title>MY MONEY｜家計・返済管理 Ver.1.7</title>
   <style>
     :root { --ink:#182c45;--muted:#6b7b90;--paper:#f5f8fc;--panel:#fff;--line:#e0e7ef;--blue:#245be4;--blue2:#eaf0ff;--green:#078568;--gold:#b56d18;--red:#b73743;--shadow:0 12px 32px rgba(27,58,92,.07) }
     * {box-sizing:border-box}html {font-size:16px} body {margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,'Hiragino Kaku Gothic ProN','Yu Gothic',Meiryo,sans-serif;line-height:1.55} button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--blue)}.hidden{display:none!important} .container{max-width:740px;margin:0 auto;padding:0 16px 96px} .header{padding:22px 0 20px;display:flex;align-items:flex-start;justify-content:space-between;gap:12px}.eyebrow{font-size:11px;letter-spacing:.12em;color:var(--muted);font-weight:750}.header h1{font-size:26px;line-height:1.25;letter-spacing:-.035em;margin:4px 0 0}.tag{font-size:12px;border-radius:999px;background:#eaf2ed;color:#227257;padding:5px 10px;white-space:nowrap}.subtext{font-size:12px;color:var(--muted)}.panel{background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:18px;box-shadow:var(--shadow);margin-bottom:13px}.panel h2{font-size:16px;margin:0 0 10px}.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:22px 0 10px}.section-head h2{font-size:17px;margin:0}.overview{background:linear-gradient(132deg,#183a7b,#245be4);color:#fff;padding:22px;border:none}.overview .subtext{color:#d3defa}.big-number{font-size:36px;font-weight:830;letter-spacing:-.04em;margin:6px 0}.big-number .yen{font-size:19px;font-weight:600;margin-right:2px}.stats{display:grid;grid-template-columns:1fr 1fr;gap:11px}.stat{border:1px solid var(--line);border-radius:17px;padding:14px;background:#fff}.stat .label{color:var(--muted);font-size:12px}.stat strong{font-size:22px;display:block;margin-top:5px;letter-spacing:-.02em}.small-flag{display:inline-block;border-radius:100px;background:var(--blue2);color:var(--blue);font-size:11px;padding:3px 8px;font-weight:700}.warn-flag{background:#fff0e4;color:#9c5719}.account{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line);padding:16px 0}.account:first-of-type{border-top:0}.account-icon{width:41px;height:41px;border-radius:12px;display:grid;place-items:center;background:var(--blue2);font-size:21px;flex-shrink:0}.account-icon.card-icon{background:#e9f6f2}.account-content{flex:1;min-width:0}.account-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.account-name{font-size:14px;font-weight:750;overflow-wrap:anywhere}.account-balance{font-size:17px;font-weight:750;white-space:nowrap}.account-meta{color:var(--muted);font-size:12px;margin-top:4px;overflow-wrap:anywhere}.btn{border:1px solid var(--line);padding:10px 13px;background:white;color:var(--ink);border-radius:12px;font-weight:740;font-size:13px;min-height:42px}.btn:focus-visible,.nav-btn:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #a5bcff;outline-offset:2px}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.btn.ghost{background:var(--blue2);color:var(--blue);border-color:transparent}.btn.danger{color:var(--red)}.btn.full{width:100%}.btn:disabled{opacity:.52;cursor:not-allowed}.btn.sm{padding:7px 9px;min-height:33px;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap}.empty{padding:22px;text-align:center;background:#f8fafd;border:1px dashed #c7d2de;border-radius:14px;color:var(--muted);font-size:13px}.helper{border-radius:13px;background:#eef4ff;color:#385577;padding:12px 13px;font-size:12px;margin:12px 0}.hint{font-size:12px;color:var(--muted);margin-top:6px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.field{margin-bottom:14px}.field.full{grid-column:1/-1}.field label{display:block;font-size:12px;font-weight:720;margin-bottom:7px}.field input,.field select,.field textarea{width:100%;background:white;color:var(--ink);border:1px solid #cbd6e5;border-radius:11px;padding:11px 12px;min-height:44px}.field textarea{min-height:85px;resize:vertical}.field .hint{line-height:1.5}.form-grid .field{margin:0}.tabs,.nav{display:flex}.tabs{margin-bottom:16px;gap:8px;overflow:auto}.tab{border:1px solid var(--line);border-radius:99px;padding:8px 15px;background:#fff;color:var(--muted);font-size:13px;font-weight:750;white-space:nowrap}.tab.active{background:var(--blue);border-color:var(--blue);color:#fff}.bottom-nav{position:fixed;bottom:0;left:0;right:0;padding:7px 0 calc(7px + env(safe-area-inset-bottom));background:#fff;border-top:1px solid var(--line);z-index:5}.bottom-nav .nav-inner{display:grid;grid-template-columns:repeat(5,1fr);max-width:740px;margin:auto}.nav-btn{border:0;background:transparent;color:#708099;padding:7px 2px;display:flex;align-items:center;flex-direction:column;gap:2px;font-size:10px;font-weight:700}.nav-btn.active{color:var(--blue)}.nav-symbol{font-size:19px;line-height:1.4}.record{border-top:1px solid var(--line);padding:12px 0;display:flex;justify-content:space-between;gap:12px}.record:first-of-type{border:0}.record-title{font-size:13px;font-weight:750}.record .amount{font-size:16px;font-weight:750;text-align:right;white-space:nowrap}.disclaimer{color:var(--muted);font-size:12px;line-height:1.65;margin:12px 0}.modal-wrap{position:fixed;inset:0;background:#132640a6;z-index:12;display:flex;align-items:flex-end;justify-content:center}.modal{background:white;width:100%;max-width:720px;border-radius:22px 22px 0 0;max-height:92vh;overflow:auto;padding:20px 18px calc(24px + env(safe-area-inset-bottom))}.modal-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;gap:10px}.modal-header h2{font-size:19px;margin:0}.close{border:0;background:#eef2f7;border-radius:999px;width:34px;height:34px;font-size:20px}.modal-footer{display:flex;gap:9px;margin-top:18px}.modal-footer .btn{flex:1}.login-wrap{min-height:100dvh;display:grid;place-items:center;padding:24px 17px}.login-box{width:100%;max-width:440px;background:white;border:1px solid var(--line);border-radius:25px;padding:28px 20px;box-shadow:var(--shadow)}.login-box h1{font-size:29px;letter-spacing:-.035em;margin:7px 0 12px}.login-box p{font-size:13px;color:var(--muted);line-height:1.8}.logo{background:var(--blue2);color:var(--blue);border-radius:18px;display:grid;place-items:center;height:58px;width:58px;font-size:28px}.notice{background:#fff5e9;border-radius:12px;color:#93601f;font-size:12px;padding:12px;margin:13px 0}.error{background:#ffedf0;color:var(--red);border-radius:10px;padding:10px;font-size:12px;margin:12px 0}.tiny{font-size:11px;color:var(--muted)}.pill{display:inline-block;background:#eef3f9;border-radius:100px;color:#51667d;padding:4px 8px;font-size:11px}.splitting{padding:11px 0;border-top:1px solid var(--line)}.splitting .line-top{display:flex;align-items:center;justify-content:space-between;gap:8px}.splitting p{font-size:12px;color:var(--muted);margin:4px 0}.compact-title{font-size:13px;font-weight:700}.foot-note{padding:12px 0 0;color:var(--muted);font-size:11px}.skip{color:var(--muted);font-size:12px}.money-pos{color:var(--green)}.alert{color:var(--red)}.mb8{margin-bottom:8px}.mt8{margin-top:8px}
@@ -117,7 +117,7 @@
   <main id="login" class="login-wrap">
     <div class="login-box">
       <div class="logo">◈</div>
-      <div class="eyebrow" style="margin-top:18px">PRIVATE MONEY DASHBOARD · V1.5</div>
+      <div class="eyebrow" style="margin-top:18px">PRIVATE MONEY DASHBOARD · V1.7</div>
       <h1>MY MONEY</h1>
       <p id="login-desc">自分のペースで、返済を見える化。<br>最初に保存用のパスフレーズを設定します。</p>
       <form id="login-form">
@@ -136,7 +136,7 @@
   <div id="app" class="hidden">
     <div class="container">
       <header class="header">
-        <div><div class="eyebrow">MY MONEY · VER 1.5</div><h1 id="page-title">財務ダッシュボード</h1><div class="subtext">2026年12月からの改善を記録</div></div>
+        <div><div class="eyebrow">MY MONEY · VER 1.7</div><h1 id="page-title">財務ダッシュボード</h1><div class="subtext">2026年11月からの改善を記録</div></div>
         <span class="tag">🔒 端末内保存</span>
       </header>
       <div id="quick-chat" aria-label="支払報告のメッセージ欄"></div>
@@ -155,7 +155,155 @@
   <input id="consult-file" class="hidden" type="file" accept=".json,application/json">
   <input id="finish-file" class="hidden" type="file" accept=".json,application/json">
   <input id="statement-file" class="hidden" type="file" accept=".pdf,.csv,.tsv,.txt,application/pdf,text/csv,text/plain">
-  <script src="./importer.js"></script>
+  <script>
+/* MY MONEY v1.6 : local-only statement and CSV parsing. No transaction data is transmitted. */
+(function(root){
+'use strict';
+const MAX_AMOUNT=100000000;
+const categories=[
+ ['supermarket','スーパー・生鮮食品'],['dining','店舗外食'],['delivery','デリバリー・持ち帰り'],
+ ['convenience','コンビニ'],['foodOnline','食品・飲料通販'],['drugstore','ドラッグストア'],
+ ['water','宅配水'],['tobacco','タバコ'],['entertainment','私費交際費'],
+ ['transport','交通費（要確認・集計対象外）'],['other','その他の私費'],['company','会社立替（除外）'],
+ ['donation','ふるさと納税（別管理）'],['tax','税金（別管理）'],
+ ['charge','楽天ペイ等チャージ'],['installment','分割・リボ（新規利用集計から除外）'],
+ ['income','給与振込（実績）'],['unknown','要確認・未分類']
+];
+const labels=Object.fromEntries(categories);
+const expenseKeys=new Set(['supermarket','dining','delivery','convenience','foodOnline','drugstore','water','tobacco','entertainment','other','charge']);
+const excludedKeys=new Set(['company','donation','tax','installment','income','unknown','transport']);
+function clean(s){return String(s??'').normalize('NFKC').replace(/\s+/g,' ').trim();}
+function normalize(s){return clean(s).toUpperCase().replace(/[\s\p{P}\p{S}]/gu,'');}
+function dateFrom(s){s=clean(s).replace(/[年月]/g,'/').replace(/日/g,'').replace(/[.\-]/g,'/');let m=s.match(/^(20\d\d)\/(\d{1,2})\/(\d{1,2})/);if(!m)return null;let [_,y,mm,dd]=m;let dt=new Date(Date.UTC(+y,+mm-1,+dd));return dt.getUTCFullYear()===+y&&dt.getUTCMonth()===+mm-1&&dt.getUTCDate()===+dd?`${y}-${mm.padStart(2,'0')}-${dd.padStart(2,'0')}`:null;}
+function amt(s){let t=clean(s).replace(/[¥￥円,\s]/g,'').replace(/^\((.*)\)$/,'-$1');if(!/^[+\-]?\d+$/.test(t))return null;const n=Number(t);return Number.isSafeInteger(n)&&Math.abs(n)<=MAX_AMOUNT?n:null;}
+function classify(merchant,amount,method=''){const s=normalize(merchant),m=normalize(method);if(/分割|リボ|キャッシング|REVO/.test(m))return {category:'installment',confidence:'high'};
+ if(/楽天ペイ残高|楽天キャッシュ|PAYPAYチャージ|SUICAチャージ/.test(s))return {category:'charge',confidence:'high'};
+ if(/ふるさと納税|FURUSATO|ふるなび|サトフル/.test(s)||/(?:都|道|府|県).+(?:市|町|村)$/.test(clean(merchant))||/^[^\s]+(?:市|町|村)$/.test(clean(merchant))&&/(?:県|北海道|市役所)/.test(s))return {category:'donation',confidence:'medium'};
+ if(/ELTAX|地方税共同機構|固定資産税|自動車税|住民税/.test(s))return {category:'tax',confidence:'high'};
+ if(/プレミアムウォーター|PREMIUMWATER/.test(s))return {category:'water',confidence:'high'};
+ if(/楽天ペイ残高|チャージ|モバイルPASMO|モバイルスイカ|交通系IC/.test(s))return {category:'charge',confidence:'medium'};
+ if(/UBER.*EATS|UBERJP.*EATS|出前館|DOORDASH|WOLT|MENU.*デリバリー/.test(s))return {category:'delivery',confidence:'high'};
+ if(/ヤオコー|スーパー|ライフオオヨド|ライフ|コープみらい|コープ|角上魚類|カクジョウギョルイ|マルエツ|オーケー|オオゼキ|イオン|SEIYU|西友|業務スーパー|ロピア|ベルク|イトーヨーカドー/.test(s))return {category:'supermarket',confidence:'high'};
+ if(/スギヤッキョク|スギヤツキヨク|スギ薬局|マツモトキヨシ|ウエルシア|サンドラッグ|ココカラファイン|ツルハ|ドラッグストア/.test(s))return {category:'drugstore',confidence:'high'};
+ if(/セブンイレブン|7ELEVEN|ローソン|LAWSON|ファミリーマート|フアミリーマート|FAMILYMART|デイリーヤマザキ|デイリ-ヤマザキ|デイリヤマザキ|ミニストップ/.test(s))return {category:'convenience',confidence:'high'};
+ if(/楽天24|楽天ドライブ|楽天ドライフ|OISIX|オイシックス|コープデリ|ネットスーパー/.test(s))return {category:'foodOnline',confidence:'medium'};
+ if(/西武鉄道|セイブテツドウ|JRトウカイ|JR東海|パスモ|SUICA|タクシ|高速道路|ETCカード/.test(s))return {category:'transport',confidence:'medium'};
+ if(/ランチ|レストラン|ラーメン|ラ-メン|マクドナルド|ケンタッキー|サイゼリヤ|ガスト|スシロー|くら寿司|はま寿司|モスバーガー|吉野家|すき家|ミスタードーナツ|スターバックス|ピザハット|ドミノピザ/.test(s))return {category:'dining',confidence:'medium'};
+ return {category:'unknown',confidence:'low'};}
+function parseCSV(text){const s=String(text||'').replace(/^\uFEFF/,'');if(!s.trim())throw Error('空のCSVです');const first=s.split(/\r?\n/,1)[0];const sep=(first.match(/\t/g)||[]).length>(first.match(/,/g)||[]).length?'\t':',';let out=[],row=[],field='',quoted=false;
+ for(let i=0;i<s.length;i++){const ch=s[i];if(ch==='"'){if(quoted&&s[i+1]==='"'){field+='"';i++;}else quoted=!quoted;}else if(ch===sep&&!quoted){row.push(field);field='';}else if((ch==='\r'||ch==='\n')&&!quoted){if(ch==='\r'&&s[i+1]==='\n')i++;row.push(field);if(row.some(v=>v.trim()))out.push(row);row=[];field='';}else field+=ch;}
+ if(quoted)throw Error('CSVの引用符が閉じられていません');row.push(field);if(row.some(v=>v.trim()))out.push(row);return out;}
+function findHeader(rows){for(let i=0;i<Math.min(12,rows.length);i++){const a=rows[i].map(normalize),hasDate=a.some(t=>/日付|利用日|取引日|DATE|入出金日/.test(t));const hasAmount=a.some(t=>/金額|AMOUNT|支払|入金|出金|取引額/.test(t));if(hasDate&&hasAmount)return i;}return -1;}
+function indexFor(headers,patterns){return headers.findIndex(h=>patterns.some(p=>p.test(normalize(h))));}
+function parseCardCSV(rows){const hi=findHeader(rows);if(hi<0)throw Error('「利用日・金額」などの見出しを見つけられませんでした。CSVの項目を確認してください。');const heads=rows[hi],idxDate=indexFor(heads,[/利用日/,/取引日/,/^日付$/,/^DATE$/,/入出金日/]),idxDesc=indexFor(heads,[/利用店名/,/利用先/,/加盟店/,/店名/,/内容/,/摘要/,/お取引内容/,/取引先/,/DESCRIPTION/]),idxMoney=indexFor(heads,[/利用金額/,/取引金額/,/ご利用金額/,/^金額$/,/AMOUNT/]),idxOut=indexFor(heads,[/^出金/,/支払金額/]),idxIn=indexFor(heads,[/^入金/]),idxMethod=indexFor(heads,[/支払方法/,/支払区分/,/PAYMENTTYPE/]),idxWho=indexFor(heads,[/利用者/,/名義/,/カード会員/]);
+ if(idxDate<0||idxDesc<0||idxMoney<0&&idxOut<0&&idxIn<0)throw Error('利用日・利用先・金額の列が必要です');let entries=[],ignored=0,bank=idxIn>=0||idxOut>=0;
+ for(let i=hi+1;i<rows.length;i++){const cols=rows[i],date=dateFrom(cols[idxDate]);if(!date){ignored++;continue;}const merchant=clean(cols[idxDesc]);if(!merchant){ignored++;continue;}let value=idxMoney>=0?amt(cols[idxMoney]):null,deposit=idxIn>=0?amt(cols[idxIn]):null,outgoing=idxOut>=0?amt(cols[idxOut]):null;
+  if(bank){if(deposit!==null&&deposit>0){const cat=/給与|キュウヨ|給料|SALARY/.test(normalize(merchant))?'income':'unknown';entries.push({date,merchant,amount:deposit,method:'入金',cardholder:'',category:cat,confidence:cat==='income'?'medium':'low',sourceType:'bank'});}else if(outgoing!==null&&outgoing>0){ignored++;}else ignored++;continue;}
+  if(value===null){ignored++;continue;}const method=idxMethod>=0?clean(cols[idxMethod]):'1回払い',cardholder=idxWho>=0?clean(cols[idxWho]):'';let cls=classify(merchant,value,method);if(value<0)cls={category:'unknown',confidence:'low'};entries.push({date,merchant,amount:value,method,cardholder,...cls,sourceType:'card'});}
+ if(!entries.length)throw Error('取り込み可能な取引がありません。CSVの形式や文字コードを確認してください。');return {entries,ignored,type:bank?'bank':'card',bill:null};}
+function parsePDFLines(lines){let statementMonth=null,billAmount=null,payDate=null,head=lines.slice(0,80).join('\n');const matched=head.match(/(20\d{2})\s*年\s*(\d{1,2})\s*月\s*ご請求金額/);if(matched)statementMonth=matched[1]+'-'+matched[2].padStart(2,'0');
+ // Bill total follows the heading, sometimes on a separate text line.
+ if(matched){const at=head.indexOf(matched[0]),part=head.slice(at+matched[0].length,at+matched[0].length+280);const q=part.match(/([\d,]+)\s*円/);if(q)billAmount=amt(q[1]);}
+ let dm=head.match(/(?:お支払日[\s\S]{0,80})?(20\d{2}\/\d{2}\/\d{2})\s+口座振替/);if(dm)payDate=dateFrom(dm[1]);
+ const entries=[];let ignored=0,skippedInstallments=0,failed=0;
+ for(const raw of lines){const line=clean(raw);if(!/^20\d{2}\/\d{2}\/\d{2}\s+/.test(line))continue;
+ // A statement line needs the member and method markers; ignore explanatory lines, payments and footers.
+ const m=line.match(/^(20\d{2}\/\d{2}\/\d{2})\s+(.+?)\s+(本人\s*\*?|家族\s*\*?|ETC\s*\*?)\s+(1\s*回払い|一括払い|分割\S*|リボ払い|キャッシング\S*|分割変更\S*)\s+([\d,]+)(?:\s|$)/);
+ const etc=!m?line.match(/^(20\d{2}\/\d{2}\/\d{2})\s+(ETCカード売上)\s+(1\s*回払い)\s+([\d,]+)(?:\s|$)/):null;
+ if(!m&&!etc){if(/分割変更|分割払い|リボ払い|キャッシング/.test(line))skippedInstallments++;ignored++;continue;}const date=dateFrom((m||etc)[1]),merchant=clean((m||etc)[2]),cardholder=m?m[3].replace(/\s+/g,''):'ETC',method=(m?m[4]:etc[3]).replace(/\s+/g,''),amount=amt(m?m[5]:etc[4]);if(!date||amount===null){failed++;continue;}
+ const c=classify(merchant,amount,method);if(c.category==='installment')skippedInstallments++;
+ entries.push({date,merchant,amount,method,cardholder,...c,sourceType:'card',billingMonth:statementMonth||null});
+ }
+ if(!entries.length){
+  const dateRows=lines.filter(x=>/^20\d{2}[\/\-]\d{1,2}[\/\-]\d{1,2}\s+/.test(clean(x))).length;
+  const holderRows=lines.filter(x=>/(本人|家族|ETC)/.test(clean(x))&&/回払い|分割|リボ|キャッシング/.test(clean(x))).length;
+  throw Error(`PDFの文字は取得できましたが、明細行を判別できませんでした（全${lines.length}行・日付候補${dateRows}行・支払区分候補${holderRows}行）。読み取り形式が異なる可能性があります。楽天e-NAVIのCSV明細、または元のPDFをお試しください。`);
+ }
+ return {type:'card',entries,ignored:ignored+failed,skippedInstallments,bill:billAmount!==null&&statementMonth?{month:statementMonth,amount:billAmount,payDate}:null};
+}
+// Offline text extraction for Rakuten/SVF statements with Shift-JIS (90ms-RKSJ-H).
+// Only used on the recognized SVF format; never interprets other PDFs as valid.
+function bytesToBinary(bytes){let out='';for(let i=0;i<bytes.length;i+=8192)out+=String.fromCharCode(...bytes.subarray(i,i+8192));return out;}
+function unescapePDFLiteral(str){return str.replace(/\\([0-7]{1,3}|.)/gs,(_,v)=>/^[0-7]/.test(v)?String.fromCharCode(parseInt(v,8)):({n:'\n',r:'\r',t:'\t',b:'\b',f:'\f'}[v]||v));}
+async function readRakutenSVF(bytes){
+ if(typeof DecompressionStream==='undefined')return null;
+ const raw=bytesToBinary(bytes);
+ if(!raw.includes('Created by SVF JavaPrint PDF Engine')||!raw.includes('90ms-RKSJ-H'))return null;
+ const pageLines=[],decoder=new TextDecoder('shift_jis');let streamCount=0;
+ const objects=raw.matchAll(/\b\d+\s+\d+\s+obj\b([\s\S]*?)endobj/g);
+ for(const obj of objects){const body=obj[1];if(!/\/Filter\s*\/FlateDecode/.test(body))continue;
+  const stream=body.match(/stream\r?\n([\s\S]*?)\r?\n?endstream/);if(!stream)continue;
+  try{
+   const compressed=Uint8Array.from(stream[1],c=>c.charCodeAt(0)&255);
+   const response=new Response(new Blob([compressed]).stream().pipeThrough(new DecompressionStream('deflate')));
+   const content=bytesToBinary(new Uint8Array(await response.arrayBuffer()));
+   const items=[];
+   for(const block of content.matchAll(/\bBT\b([\s\S]*?)\bET\b/g)){
+    const pos=block[1].match(/(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+Td/);
+    const txt=block[1].match(/\(((?:\\[\s\S]|[^\\)])*)\)\s*Tj/);
+    if(!pos||!txt)continue;
+    const binary=unescapePDFLiteral(txt[1]);const chars=decoder.decode(Uint8Array.from(binary,c=>c.charCodeAt(0)&255)).trim();
+    if(chars)items.push({x:Number(pos[1]),y:Number(pos[2]),str:chars});
+   }
+   if(!items.length)continue;
+   const groups=[];
+   for(const x of items){let group=groups.find(g=>Math.abs(g.y-x.y)<2.2);if(!group){group={y:x.y,items:[]};groups.push(group);}group.items.push(x);}
+   groups.sort((a,b)=>b.y-a.y);
+   for(const g of groups){g.items.sort((a,b)=>a.x-b.x);pageLines.push(g.items.map(x=>x.str).join(' '));}
+   streamCount++;
+  }catch(err){throw Error('楽天カードPDFの文字展開に失敗しました: '+(err.message||String(err)));}
+ }
+ if(!streamCount||!pageLines.some(x=>/ご利用明細|利用日/.test(x)))throw Error('楽天カードPDFの文字を抽出できませんでした。CSV明細もお試しください。');
+ try{
+  const parsed=parsePDFLines(pageLines);parsed.pdfPages=streamCount;parsed.reader='楽天カードPDF・端末内解析';return parsed;
+ }catch(err){
+  err.readerDiagnostics=`端末内解析: 解凍した文字ページ${streamCount}、日付候補${pageLines.filter(x=>/^20\d{2}\/\d{2}\/\d{2}\s+/.test(clean(x))).length}行`;
+  throw err;
+ }
+}
+async function loadPdfLibrary(){
+ if(root.pdfjsLib)return root.pdfjsLib;
+ const hosts=['https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js','https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js','https://unpkg.com/pdfjs-dist@3.11.174/build/pdf.min.js'];
+ for(const url of hosts){try{
+   await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src=url;s.crossOrigin='anonymous';s.onload=()=>root.pdfjsLib?resolve():reject(Error('ライブラリの初期化に失敗'));s.onerror=()=>reject(Error('CDNに接続できません'));document.head.appendChild(s);});
+   if(root.pdfjsLib)return root.pdfjsLib;
+  }catch{}
+ }
+ throw Error('PDF解析プログラムを取得できません。接続を確認するか、楽天カードのCSV明細を選択してください。');
+}
+async function readPDF(file){
+ if(typeof document==='undefined')throw Error('PDFはブラウザで読み込んでください');
+ const data=new Uint8Array(await file.arrayBuffer());
+ // Most Rakuten PDF statements made with SVF can be parsed without the internet.
+ let localError=null;
+ try{const local=await readRakutenSVF(data);if(local)return local;}
+ catch(err){localError=err;}
+ let lib;
+ try{lib=await loadPdfLibrary();}
+ catch(err){if(localError)throw Error(`${localError.message} ／ ${localError.readerDiagnostics||'端末内解析失敗'}。予備のPDF解析も利用できませんでした。`);throw err;}
+ // Disable workers to avoid worker CDN/version mismatches on PWA updates.
+ let pdf;
+ try{pdf=await lib.getDocument({data,disableWorker:true,useSystemFonts:true}).promise;}
+ catch(e){throw Error('PDFを開けませんでした: '+(e.message||String(e)));}
+ const lines=[];
+ for(let p=1;p<=pdf.numPages;p++){const page=await pdf.getPage(p),content=await page.getTextContent(),groups=[];
+  for(const item of content.items){const txt=String(item.str||'').trim();if(!txt)continue;const x=item.transform[4],y=item.transform[5];let group=groups.find(g=>Math.abs(g.y-y)<2.2);if(!group){group={y,items:[]};groups.push(group);}group.items.push({x,txt});}
+  groups.sort((a,b)=>b.y-a.y);for(const g of groups){g.items.sort((a,b)=>a.x-b.x);lines.push(g.items.map(v=>v.txt).join(' '));}
+ }
+ let res;
+ try{res=parsePDFLines(lines);}
+ catch(err){throw Error((localError?`${localError.readerDiagnostics||'端末内解析'}。`:'')+`標準PDF解析: ${err.message}`);}
+ res.pdfPages=pdf.numPages;res.reader='PDF.js文字抽出';return res;
+}
+async function readText(file){const data=await file.arrayBuffer();const bytes=new Uint8Array(data),isUtf8=(()=>{try{new TextDecoder('utf-8',{fatal:true}).decode(bytes);return true;}catch{return false;}})();return new TextDecoder(isUtf8?'utf-8':'shift_jis').decode(bytes);}
+async function parseFile(file){if(!file||file.size<=0)throw Error('空のファイルです');if(file.size>8*1024*1024)throw Error('ファイルの上限は8MBです');const name=file.name.toLowerCase();let result;if(name.endsWith('.pdf'))result=await readPDF(file);else if(name.endsWith('.csv')||name.endsWith('.tsv')||name.endsWith('.txt'))result=parseCardCSV(parseCSV(await readText(file)));else throw Error('対応形式はPDFとCSVです。Excelの明細はCSVとして保存してから選択してください。');
+ const digest=await crypto.subtle.digest('SHA-256',await file.arrayBuffer());result.hash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');result.filename=file.name;result.entries=result.entries.map((e,i)=>({...e,uid:result.hash.slice(0,20)+':'+i}));return result;}
+function monthTotals(entries){const months={};for(const e of entries){const m=e.date.slice(0,7);const x=months[m]||(months[m]={month:m,spend:0,unknown:0,transactions:0,category:{},income:0,excluded:0});x.transactions++;const n=Number(e.amount)||0;if(e.category==='income')x.income+=n;else if(e.sourceType==='bank'){x.unknown++;}else if(expenseKeys.has(e.category)){x.spend+=n;x.category[e.category]=(x.category[e.category]||0)+n;}else if(e.category==='unknown')x.unknown++;else x.excluded+=n;}return Object.values(months).sort((a,b)=>b.month.localeCompare(a.month));}
+root.MMYImporter={version:'1.6',categories,labels,expenseKeys,excludedKeys,normalize,clean,dateFrom,amt,classify,parseCSV,parseCardCSV,parsePDFLines,readRakutenSVF,readText,parseFile,monthTotals};
+if(typeof module!=='undefined'&&module.exports)module.exports=root.MMYImporter;
+})(typeof window!=='undefined'?window:globalThis);
+
+</script>
   <script>
   'use strict';
   (() => {
@@ -176,7 +324,7 @@
       bonusMortgage:null,bonusTimes:2,propertyTaxAnnual:null,carInspectionTwoYears:null,carTaxAnnual:null,lessonMonthly:null,
       cardNewLow:null,cardNewHigh:null,cardInstallmentsIncludingFees:null,cardSchedule:[],
       gasMonthlyLow:null,gasMonthlyHigh:null,furusatoAnnual:null,furusatoReserveEnabled:false,expenseProfile:null,incomeHistory:[],companyAdvances:[],companyReimbursementNote:'',lastReviewed:'',reviewNotes:[],progressMonths:[],profileImported:false});
-    const RESULTS_START='2026-12'; // A results window, not a bank-asset baseline.
+    const RESULTS_START='2026-11'; // A results window, not a bank-asset baseline.
     const expenseFields = [
       ['supermarket','スーパー・生鮮食品'],['dining','店舗外食（会社経費・奢り除く）'],
       ['delivery','デリバリー・持ち帰り'],['convenience','コンビニ直接決済'],
@@ -212,7 +360,8 @@
       const existing=Array.isArray(f.cardSchedule)?f.cardSchedule:[];
       const planned=new Map(existing.filter(x=>/^20\d{2}-(0[1-9]|1[0-2])$/.test(x.month)&&Number.isSafeInteger(Number(x.amount))&&Number(x.amount)>=0).map(x=>[x.month,Number(x.amount)]));
       const chosenStart=/^20\d{2}-(0[1-9]|1[0-2])$/.test(f.forecastStartMonth||'')?f.forecastStartMonth:(existing.length?existing.map(x=>x.month).sort()[0]:monthAdd(nowLocal().slice(0,7),1));
-      const start=chosenStart<RESULTS_START?RESULTS_START:chosenStart;
+      const FORECAST_EARLIEST='2026-12'; // Keep the current forward-looking cash-flow plan separate from the results start.
+      const start=chosenStart<FORECAST_EARLIEST?FORECAST_EARLIEST:chosenStart;
       return Array.from({length:12},(_,idx)=>{
         const month=monthAdd(start,idx),known=planned.has(month),old=known?planned.get(month):null;
         const delta=known?Math.round(salary-c.fixed-regular-old):null;
@@ -398,7 +547,7 @@
     function renderPaidBills(compact=false){
       const arr=Array.isArray(state.paymentChecks)?state.paymentChecks.filter(x=>x.status==='paid'):[];
       return `<section class="panel"><div class="section-head" style="margin:0 0 8px"><h2>支払い完了・月別実績</h2><span class="subpill">会話から反映</span></div>
-        <p class="disclaimer">保険・楽天カードなどの<strong>支払い実績</strong>を記録。12月より前の記録も確認できるよ。これはカードの購入日ベースの費目集計とは異なるため、<strong>合算しない</strong>。未入力は0円にしない。</p>
+        <p class="disclaimer">保険・楽天カードなどの<strong>支払い実績</strong>を記録。2026年10月以前の記録も履歴として確認できるよ。これはカードの購入日ベースの費目集計とは異なるため、<strong>合算しない</strong>。未入力は0円にしない。</p>
         ${arr.length?`<details class="history-fold"><summary>月別の支払済み履歴を開く（${arr.length}件）</summary><div class="fold-inner">${checkPaidSummary()}</div></details>`:checkPaidSummary()}
       </section>`;
     }
@@ -586,7 +735,8 @@
       }
       const history=Array.isArray(state.finance?.progressMonths)?state.finance.progressMonths:[];
       const actuals=new Map(history.filter(x=>x&&/^20\d{2}-(0[1-9]|1[0-2])$/.test(x.month)&&x.month>=RESULTS_START).map(x=>[x.month,x]));
-      return {items,totalPrincipal,totalCosts,byMonth,actuals};
+      const paidChecks=Array.isArray(state.paymentChecks)?state.paymentChecks.filter(x=>x && x.status==='paid' && typeof x.month==='string' && x.month>=RESULTS_START):[];
+      return {items,totalPrincipal,totalCosts,byMonth,actuals,paidChecks};
     }
     function renderResults(){
       const r=resultsSummary(),current=nowLocal().slice(0,7),started=current>=RESULTS_START;
@@ -604,11 +754,12 @@
         const future=m>current;
         return `<div class="result-month"><div class="result-month-title"><strong>${esc(monthName(m))}</strong><span class="pill">${future?'これから':x||a?'記録あり':'未記録'}</span></div><div class="result-month-detail"><span>返済した元金：<strong>${amount}</strong></span><span>通常カード新規利用：<strong>${card}</strong></span></div>${x?`<div class="hint">利息・手数料：${money(x.costs)} ／ ${x.count}件</div>`:''}${note}</div>`;
       }).join('');
-      return `<section class="panel result-hero"><div class="eyebrow">START · 2026.12</div><h2>2026年12月からの成果</h2><p class="result-intro">これからの改善だけを記録。以前の支払いや資産額とは切り離して、元金返済と毎月の支出を確認します。</p>
-        <div class="result-key"><div><span>12月以降に減らした元金</span><strong>${money(r.totalPrincipal)}</strong></div><div><span>記録した利息・手数料</span><strong>${money(r.totalCosts)}</strong></div><div><span>返済記録</span><strong>${r.items.length}件</strong></div></div>
-        ${!started?'<div class="result-invite">2026年12月から成果の記録を開始します。返済を記録すると、ここに自動反映されます。</div>':''}
+      return `<section class="panel result-hero"><div class="eyebrow">START · 2026.11</div><h2>2026年11月からの成果</h2><p class="result-intro">2026年11月以降の返済と毎月の支出を記録。保険料やカード請求額は、借入元金とは分けて管理します。</p>
+        <div class="result-key"><div><span>11月以降に減らした元金</span><strong>${money(r.totalPrincipal)}</strong></div><div><span>記録した利息・手数料</span><strong>${money(r.totalCosts)}</strong></div><div><span>返済記録</span><strong>${r.items.length}件</strong></div></div>
+        <p class="result-intro">11月以降の支払済み報告：<strong>${r.paidChecks.length}件</strong>（保険・カードなど）。支払額は元金の減少と合算しません。</p>
+        ${!started?'<div class="result-invite">2026年11月から成果の記録を開始します。返済を記録すると、ここに自動反映されます。</div>':''}
         <div class="actions"><button class="btn primary" data-page-go="payments">返済を記録する</button><button class="btn ghost" id="edit-progress-month">月別の支出実績を記録</button></div></section>
-        <section class="panel"><div class="section-head" style="margin:0 0 10px"><h2>毎月の改善記録</h2><span class="subpill">2026年12月〜</span></div>
+        <section class="panel"><div class="section-head" style="margin:0 0 10px"><h2>毎月の改善記録</h2><span class="subpill">2026年11月〜</span></div>
           <p class="disclaimer">元金・利息は「返済」画面の実績から自動集計。カードの通常新規利用は任意で記録します。未入力の月は0円として扱いません。</p>
           ${cardActuals.length?`<div class="result-comparison"><span>直近の通常カード新規利用：<strong>${money(lastCard.ordinaryCard)}</strong>（${esc(monthName(lastCard.month))}）</span>${prevCard?`<span>前回記録からの変化：<strong class="${lastCard.ordinaryCard<prevCard.ordinaryCard?'money-pos':''}">${moneySigned(lastCard.ordinaryCard-prevCard.ordinaryCard)}</strong></span>`:''}</div>`:''}
           <details class="history-fold"><summary>月別の改善履歴を開く</summary><div class="result-months fold-inner">${monthRows}</div></details><button class="btn ghost full mt8" id="edit-progress-month-bottom">月別の実績を入力・修正</button>
@@ -616,11 +767,13 @@
     }
     function editProgressMonth(){
       const current=nowLocal().slice(0,7);
-      if(current<RESULTS_START){msg('毎月の実績入力は2026年12月から始められます。準備として借入情報や返済履歴は今から登録できます。');return;}
+      if(current<RESULTS_START){msg('毎月の実績入力は2026年11月から始められます。準備として借入情報や返済履歴は今から登録できます。');return;}
       const f=state.finance||blankFinance();
       const entries=Array.isArray(f.progressMonths)?f.progressMonths:[];
-      const months=Array.from({length:Math.min(48,((Number(current.slice(0,4))-2026)*12+Number(current.slice(5))-12)+1)},(_,i)=>monthAdd(RESULTS_START,i));
-      modal('2026年12月からの月別実績',`<div class="helper">普段のカード新規利用を、確認できた月だけ入力します。会社立替・ふるさと納税・過去分割の返済は含めないでください。利息と元金は「返済」で別に記録します。</div>
+      const [startY,startM]=RESULTS_START.split('-').map(Number);
+      const count=Math.min(48,Math.max(1,(Number(current.slice(0,4))-startY)*12+Number(current.slice(5))-startM+1));
+      const months=Array.from({length:count},(_,i)=>monthAdd(RESULTS_START,i));
+      modal('2026年11月からの月別実績',`<div class="helper">普段のカード新規利用を、確認できた月だけ入力します。会社立替・ふるさと納税・過去分割の返済は含めないでください。利息と元金は「返済」で別に記録します。</div>
         <div class="field"><label for="f-result-month">記録する月</label><select id="f-result-month" name="resultMonth">${months.map(m=>`<option value="${m}">${esc(monthName(m))}</option>`).join('')}</select></div>
         ${field('普段のカード新規利用（円）','ordinaryCard','number','','min="0" step="1" inputmode="numeric"','未確認は空欄のまま。0円と確認できた場合のみ0を入力。')}
         <div class="field"><label for="f-result-note">その月の成果・工夫（任意）</label><textarea id="f-result-note" name="note" maxlength="250" placeholder="例：週2回は家の食材で昼食を作った"></textarea></div>
@@ -638,7 +791,7 @@
     function loanSummary(a){const details=[];if(has(a.monthly))details.push(`月額 ${money(a.monthly)}`);if(has(a.apr))details.push(`年利 ${a.apr}%`);if(has(a.dueDay))details.push(`支払目安 ${due(a.dueDay)}`);return details.join(' · ')||'残高・支払予定は未入力';}
     function cardSummary(a){const details=[`${a.items.length}件の分割明細`];if(a.items.length && monthly(a))details.push(`月額 ${money(monthly(a))}`);if(has(a.dueDay))details.push(`支払目安 ${due(a.dueDay)}`);return details.join(' · ');}
     function accountRow(a,edit=true){return `<div class="account"><div class="account-icon ${a.kind==='card'?'card-icon':''}">${a.kind==='card'?'▣':'◉'}</div><div class="account-content"><div class="account-top"><div class="account-name">${esc(a.name)}</div><div class="account-balance">${registered(a)?money(principal(a)):'未入力'}</div></div><div class="account-meta">${esc(a.kind==='card'?cardSummary(a):loanSummary(a))}</div></div>${edit?`<button class="btn sm" data-edit-account="${esc(a.id)}">編集</button>`:''}</div>`;}
-    function render(){resetIdle();$('#page-title').textContent=({home:'2026年12月からの成果',budget:'家計・収支の見通し',debts:'借入登録',payments:'返済記録',settings:'設定・バックアップ',expenses:'支出の見える化',import:'明細の自動取込'})[page];$$('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.page===(page==='expenses'?'budget':page)));const target=$('#content');
+    function render(){resetIdle();$('#page-title').textContent=({home:'2026年11月からの成果',budget:'家計・収支の見通し',debts:'借入登録',payments:'返済記録',settings:'設定・バックアップ',expenses:'支出の見える化',import:'明細の自動取込'})[page];$$('.nav-btn').forEach(b=>b.classList.toggle('active',b.dataset.page===(page==='expenses'?'budget':page)));const target=$('#content');
       if(page==='home')renderHome(target);if(page==='budget')renderBudget(target);if(page==='expenses')renderExpenses(target);if(page==='debts')renderDebts(target);if(page==='payments')renderPayments(target);if(page==='settings')renderSettings(target);if(page==='import')renderImport(target);
       bindPage(target);bindChat();
     }
@@ -665,9 +818,9 @@
       const forecastRows=forecast.map(x=>x.known?`<div class="forecast-card"><div class="forecast-card-top"><strong>${esc(monthName(x.month))}</strong><strong class="${x.delta<0?'alert':'money-pos'}">${moneySigned(x.delta)}</strong></div><div class="detail">設定給与 ${money(x.salary)} − 固定費・年積立 ${money(Math.round(c.fixed))}<br>− 新規カード想定 ${money(x.regular)} − 既存カード請求 ${money(x.old)}</div></div>`:`<div class="forecast-card unknown"><div class="forecast-card-top"><strong>${esc(monthName(x.month))}</strong><span class="pill">カード請求未確認</span></div><div class="detail">この月の既存カード請求が未入力。0円とはみなさず、月次収支差額を予測しません。「支払予定を編集」で確認できた金額を入力してください。</div></div>`).join('');
       const limits=forecast[0]?.known?forecast[0].salary-c.fixed-forecast[0].old:null;
       const known=forecast.filter(x=>x.known),monthlyPositive=known.filter(x=>x.delta>=0).length;
-      el.innerHTML=`${renderPaidBills()}<section class="panel overview"><div class="subtext">2026年12月からの改善｜収入・支出・返済を整理</div><h2 style="font-size:25px;margin:8px 0 12px;color:white">毎月の収支を整える</h2><div class="subtext">毎月の収支差額と返済の成果だけを確認します。</div><div class="finance-actions"><button class="btn" id="edit-finance">家計の数字を編集</button><button class="btn" id="import-consult-budget">初期データを読込</button><button class="btn" data-page-go="expenses">食費・支出分析 →</button></div></section>
+      el.innerHTML=`${renderPaidBills()}<section class="panel overview"><div class="subtext">2026年11月からの改善｜収入・支出・返済を整理</div><h2 style="font-size:25px;margin:8px 0 12px;color:white">毎月の収支を整える</h2><div class="subtext">毎月の収支差額と返済の成果だけを確認します。</div><div class="finance-actions"><button class="btn" id="edit-finance">家計の数字を編集</button><button class="btn" id="import-consult-budget">初期データを読込</button><button class="btn" data-page-go="expenses">食費・支出分析 →</button></div></section>
         <section class="panel"><h2>月間の支出構造</h2><div class="money-grid"><div class="money-tile"><span>給与手取り（設定値）</span><strong>${yenVal(f.salary)}</strong></div><div class="money-tile"><span>固定費・税金・年間積立の月平均</span><strong>${money(Math.round(c.fixed))}</strong></div><div class="money-tile wide"><span>普段のカード新規利用（FX・競馬・会社立替を除く推定）</span><strong>${cardRange}</strong><div class="label-muted">過去の分割・キャッシング返済は含めません。ガソリン・楽天ペイチャージ・日常のカード支払いを含めます。ふるさと納税の積立を別に行うなら、寄付額は重ねません。</div></div></div><div class="splitting"><div class="line-top"><strong>既存カード返済前の月次余力</strong><strong class="${lowSurplus!==null&&lowSurplus<0?'alert':'money-pos'}">${lowSurplus===null?'未算定':moneySigned(Math.round(lowSurplus))} 〜 ${highSurplus===null?'未算定':moneySigned(Math.round(highSurplus))}</strong></div><p>これは収支の参考値であり、自由に使える金額ではありません。既存カードの支払いも別途必要です。</p></div></section>
-        <section class="panel"><div class="section-head" style="margin:0 0 6px"><h2>12か月の月次収支見通し</h2><span class="subpill">Ver.1.5</span></div><div class="forecast-switch" role="group" aria-label="収支シナリオ">${sr('low','慎重')}${sr('base','基準')}${sr('high','余裕')}</div><p class="scenario-detail">${scenarioTitle}シナリオ：給与 ${forecast.length?money(forecast[0].salary):'未入力'}／月・新規カード ${forecast.length?money(forecast[0].regular):'未入力'}／月。既存カードの支払予定は最新明細と照合して更新してください。未確認月は0円とみなしません。</p>
+        <section class="panel"><div class="section-head" style="margin:0 0 6px"><h2>12か月の月次収支見通し</h2><span class="subpill">Ver.1.7</span></div><div class="forecast-switch" role="group" aria-label="収支シナリオ">${sr('low','慎重')}${sr('base','基準')}${sr('high','余裕')}</div><p class="scenario-detail">${scenarioTitle}シナリオ：給与 ${forecast.length?money(forecast[0].salary):'未入力'}／月・新規カード ${forecast.length?money(forecast[0].regular):'未入力'}／月。既存カードの支払予定は最新明細と照合して更新してください。未確認月は0円とみなしません。</p>
           <div class="money-grid" style="margin-top:11px"><div class="money-tile"><span>翌月の新規カード利用の収支均衡目安</span><strong>${limits===null?'未算定':money(Math.round(limits))}</strong><div class="label-muted">既存支払い込み。既に使った額は未反映</div></div><div class="money-tile"><span>収支差額を計算できる月</span><strong>${known.length}か月／12か月</strong><div class="label-muted">うち試算上の黒字月：${monthlyPositive}か月</div></div></div>
           <div class="status-note">月ごとの給与・固定費・通常カード新規利用・既存カード請求の<strong>差額だけ</strong>を表示します。金融口座の実際の増減ではなく、ボーナス返済の実際の月・会社立替の精算タイミング・カード請求月のずれは未反映です。ふるさと納税積立は実際の毎月引落しではありません。</div>
           <div class="actions" style="margin:14px 0"><button class="btn primary" id="edit-card-schedule">12か月のカード支払予定を編集</button></div>
@@ -822,7 +975,7 @@
       return db;
     };
     function importMonths(){return moneyImport?moneyImport.monthTotals(importState().entries):[];}
-    function renderImportHome(){const db=importState(),totals=importMonths(),last=totals[0];return `<section class="panel"><div class="section-head" style="margin:0 0 8px"><h2>ファイルから自動集計</h2><span class="subpill">Ver.1.5</span></div>
+    function renderImportHome(){const db=importState(),totals=importMonths(),last=totals[0];return `<section class="panel"><div class="section-head" style="margin:0 0 8px"><h2>ファイルから自動集計</h2><span class="subpill">Ver.1.7</span></div>
       <p class="disclaimer">楽天カードPDF・CSV、給与入金CSVの取り込みに対応。食費やカードの利用内訳を反映します。借入残高や返済履歴は勝手に変更しません。</p>
       ${last?`<div class="money-grid"><div class="money-tile"><span>${esc(monthName(last.month))}・分類済み新規利用（取込分のみ）</span><strong>${money(last.spend)}</strong></div><div class="money-tile"><span>未分類の取引</span><strong>${last.unknown}件</strong></div></div>`:`<div class="helper">まだ明細は読み込まれていません。ファイルを選んで自動分類を始めましょう。</div>`}
       <div class="actions mt8"><button class="btn primary" data-page-go="import">＋ 明細ファイルを読み込む</button></div></section>`;}
@@ -830,7 +983,7 @@
       const all=months.map(x=>`<div class="import-month"><div class="import-panel-actions"><strong>${esc(monthName(x.month))}</strong><span class="subpill">${x.transactions}件</span></div><div class="import-summary mt8"><div><span>新規カード利用（分類済み取込分）</span><strong>${money(x.spend)}</strong></div><div><span>未分類</span><strong>${x.unknown}件</strong></div></div><details class="mt8"><summary style="font-size:12px;cursor:pointer">費目内訳を表示</summary><table class="finance-table">${Object.entries(x.category).sort((a,b)=>b[1]-a[1]).map(([k,v])=>`<tr><td>${esc(moneyImport.labels[k]||k)}</td><td>${money(v)}</td></tr>`).join('')}</table>${x.income?`<div class="hint">給与入金（候補）：${money(x.income)}</div>`:''}<div class="hint">会社立替・寄付・税金・分割は新規利用集計に含めません。楽天ペイチャージはカード支出として1回だけ集計します。</div></details><div class="actions mt8"><button class="btn ghost sm" data-import-edit="${esc(x.month)}">この月の費目を修正</button>${x.month>=RESULTS_START?`<button class="btn ghost sm" data-import-progress="${esc(x.month)}">分類済み額を成果へ登録</button>`:''}</div></div>`).join('');
       el.innerHTML=`<section class="panel import-head"><button class="btn ghost sm" data-page-go="home">← 成果に戻る</button><h2 style="margin-top:13px">明細の自動取込</h2><p class="disclaimer">カード利用明細PDF・CSVを読み込むと、取引を自動分類して月別に集計します。銀行CSVの給与入金も認識します。すべて<strong>スマホ内で処理</strong>し、確認後に暗号化保存します。</p>
       ${importFailure?`<div class="error" role="alert" style="display:block;margin:10px 0;padding:12px"><strong>前回の読込エラー</strong><div class="hint">${esc(importFailure)}</div><div class="hint">楽天e-NAVIのダウンロード明細PDF、またはCSVで再度試してください。借入・返済データは変更されていません。</div></div>`:''}
-      <div class="import-drop"><div style="font-size:27px">📄</div><strong>PDF・CSVを選択</strong><div class="hint">1ファイルずつ・8MBまで。PDFは楽天カードのテキスト明細に対応。Excel（.xlsx）はCSVで保存してください。</div><button id="import-open" class="btn primary">＋ ファイルを選ぶ</button></div><div class="hint">楽天カード（SVF形式）の文字付きPDFは端末内で解析できます。その他のPDFは外部解析プログラムの取得が必要な場合があります。明細データは送信しません。</div></section>
+      <div class="import-drop"><div style="font-size:27px">📄</div><strong>PDF・CSVを選択</strong><div class="hint">1ファイルずつ・8MBまで。PDFは楽天カードのテキスト明細に対応。Excel（.xlsx）はCSVで保存してください。</div><button id="import-open" class="btn primary">＋ ファイルを選ぶ</button></div><div class="hint">楽天カード（SVF形式）の文字付きPDFは端末内で解析できます。読み取りエンジンVer.1.6（内蔵）を使用中。その他のPDFは外部解析プログラムの取得が必要な場合があります。明細データは送信しません。</div></section>
       <section class="panel"><h2>読み込んだ月別の支出</h2><p class="disclaimer">${db.batches.length}ファイル・${totalEntries}取引を登録。家計分析の過去平均や手入力の確定額を上書きせず、<strong>取込分の実績</strong>として集計します。カード請求額と買い物額は別物です。</p>${all||'<div class="empty">ファイルを読み込むと、スーパー・外食・デリバリーなどが月別に表示されます。</div>'}</section>
       <section class="panel"><h2>取込済みファイル・取り消し</h2>${db.batches.length?db.batches.slice().reverse().map(b=>`<div class="import-file"><div><strong>${esc(b.filename)}</strong><div class="import-muted">${esc((b.importedAt||'').slice(0,10))} ・ ${b.count}件　${b.bill?`／ 請求額 ${money(b.bill.amount)}`:''}</div></div><button class="btn sm danger" data-import-delete="${esc(b.id)}">取消</button></div>`).join(''):'<div class="empty">まだありません</div>'}<p class="disclaimer">取り込みを取り消すと、そのファイル由来の集計だけ削除されます。既存の借入や手入力した成果には影響しません。</p></section>`;
       $$('[data-import-delete]',el).forEach(b=>b.addEventListener('click',()=>removeImport(b.dataset.importDelete)));
@@ -904,7 +1057,7 @@
 
     function renderSettings(el){el.innerHTML=`<section class="panel"><h2>明細ファイルを自動で反映</h2><p class="disclaimer">楽天カードPDF・CSV、銀行の給与入金CSVなどから支出を自動分類。取引の確認後に、端末内へ暗号化して保存します。</p><button class="btn primary full" data-page-go="import">明細ファイルを読み込む →</button></section><section class="panel"><h2>コンサル結果を反映</h2><p class="disclaimer">このアプリ本体に個人の家計数値は含みません。専用の診断JSONを端末から読み込み、暗号化して保存します。<strong>診断JSONは暗号化されていないため、GitHub等へアップロードしないでください。</strong></p><button class="btn primary full" id="import-consult">診断データ（JSON）を取り込む</button></section><section class="panel"><h2>食費・生活費の分析データ</h2><p class="disclaimer">家計の分析値と実振込履歴を追加できます。プライベートなJSONはGitHubへ上げないでください。</p><button class="btn ghost full" data-page-go="expenses">支出の見える化を開く →</button></section><section class="panel"><h2>バックアップと復元</h2><p class="disclaimer">保存データは暗号化され、このブラウザ内だけに保持されます。ブラウザの閲覧データ消去・端末故障・機種変更に備えて、バックアップファイルを保存してください。</p><div class="actions"><button class="btn primary" id="backup">暗号化バックアップを保存</button><button class="btn" id="restore">バックアップを復元</button></div><div class="notice"><strong>重要：</strong>バックアップは暗号化されていますが、復元には作成時のパスフレーズが必要です。パスフレーズ自体は保存されません。</div></section>
       <section class="panel"><h2>プライバシー</h2><p class="disclaimer">アプリの実行時に金融情報をサーバーへ送信しません。金融機関との接続、広告・アクセス解析もありません。データはこの端末のこのブラウザ（このサイトの保存領域）にのみ保存します。GitHubにコードを置いても、入力データは自動的にGitHubへ保存されません。</p><button class="btn" id="lock">画面をロックする</button></section>
-      <section class="panel"><h2>データ全消去</h2><p class="disclaimer">端末の保存情報を削除すると、復元できません。必要なら先にバックアップしてください。</p><button class="btn danger" id="wipe">この端末のデータを削除</button></section><p class="foot-note">Ver.1.5：2026年12月からの成果＋返済管理＋12か月の収支見通し＋支出分析。口座連携・自動同期・FX取引機能はありません。</p>`;
+      <section class="panel"><h2>データ全消去</h2><p class="disclaimer">端末の保存情報を削除すると、復元できません。必要なら先にバックアップしてください。</p><button class="btn danger" id="wipe">この端末のデータを削除</button></section><p class="foot-note">Ver.1.7：2026年11月からの成果＋返済管理＋12か月の収支見通し＋支出分析。口座連携・自動同期・FX取引機能はありません。</p>`;
     }
     function bindPage(el){$$('[data-page-go]',el).forEach(b=>b.addEventListener('click',()=>{page=b.dataset.pageGo;render();window.scrollTo(0,0)}));$$('[data-edit-account]',el).forEach(b=>b.addEventListener('click',()=>editAccount(b.dataset.editAccount)));$$('[data-add-item]',el).forEach(b=>b.addEventListener('click',()=>editItem(b.dataset.addItem,null)));$$('[data-edit-item]',el).forEach(b=>b.addEventListener('click',()=>editItem('card-1',b.dataset.editItem)));
       $('#edit-progress-month',el)?.addEventListener('click',editProgressMonth);$('#edit-progress-month-bottom',el)?.addEventListener('click',editProgressMonth);$('#add-payment',el)?.addEventListener('click',addPayment);$$('[data-delete-payment]',el).forEach(b=>b.addEventListener('click',()=>deletePayment(b.dataset.deletePayment)));

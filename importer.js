@@ -1,4 +1,4 @@
-/* MY MONEY v1.2 : local-only statement and CSV parsing. No transaction data is transmitted. */
+/* MY MONEY v1.6 : local-only statement and CSV parsing. No transaction data is transmitted. */
 (function(root){
 'use strict';
 const MAX_AMOUNT=100000000;
@@ -56,7 +56,11 @@ function parsePDFLines(lines){let statementMonth=null,billAmount=null,payDate=nu
  const c=classify(merchant,amount,method);if(c.category==='installment')skippedInstallments++;
  entries.push({date,merchant,amount,method,cardholder,...c,sourceType:'card',billingMonth:statementMonth||null});
  }
- if(!entries.length)throw Error('明細行が抽出できませんでした。画像のみのPDFや、未対応のカード会社形式かもしれません。');
+ if(!entries.length){
+  const dateRows=lines.filter(x=>/^20\d{2}[\/\-]\d{1,2}[\/\-]\d{1,2}\s+/.test(clean(x))).length;
+  const holderRows=lines.filter(x=>/(本人|家族|ETC)/.test(clean(x))&&/回払い|分割|リボ|キャッシング/.test(clean(x))).length;
+  throw Error(`PDFの文字は取得できましたが、明細行を判別できませんでした（全${lines.length}行・日付候補${dateRows}行・支払区分候補${holderRows}行）。読み取り形式が異なる可能性があります。楽天e-NAVIのCSV明細、または元のPDFをお試しください。`);
+ }
  return {type:'card',entries,ignored:ignored+failed,skippedInstallments,bill:billAmount!==null&&statementMonth?{month:statementMonth,amount:billAmount,payDate}:null};
 }
 // Offline text extraction for Rakuten/SVF statements with Shift-JIS (90ms-RKSJ-H).
@@ -92,7 +96,12 @@ async function readRakutenSVF(bytes){
   }catch(err){throw Error('楽天カードPDFの文字展開に失敗しました: '+(err.message||String(err)));}
  }
  if(!streamCount||!pageLines.some(x=>/ご利用明細|利用日/.test(x)))throw Error('楽天カードPDFの文字を抽出できませんでした。CSV明細もお試しください。');
- const parsed=parsePDFLines(pageLines);parsed.pdfPages=streamCount;parsed.reader='楽天カードPDF・端末内解析';return parsed;
+ try{
+  const parsed=parsePDFLines(pageLines);parsed.pdfPages=streamCount;parsed.reader='楽天カードPDF・端末内解析';return parsed;
+ }catch(err){
+  err.readerDiagnostics=`端末内解析: 解凍した文字ページ${streamCount}、日付候補${pageLines.filter(x=>/^20\d{2}\/\d{2}\/\d{2}\s+/.test(clean(x))).length}行`;
+  throw err;
+ }
 }
 async function loadPdfLibrary(){
  if(root.pdfjsLib)return root.pdfjsLib;
@@ -108,8 +117,12 @@ async function readPDF(file){
  if(typeof document==='undefined')throw Error('PDFはブラウザで読み込んでください');
  const data=new Uint8Array(await file.arrayBuffer());
  // Most Rakuten PDF statements made with SVF can be parsed without the internet.
- const local=await readRakutenSVF(data);if(local)return local;
- const lib=await loadPdfLibrary();
+ let localError=null;
+ try{const local=await readRakutenSVF(data);if(local)return local;}
+ catch(err){localError=err;}
+ let lib;
+ try{lib=await loadPdfLibrary();}
+ catch(err){if(localError)throw Error(`${localError.message} ／ ${localError.readerDiagnostics||'端末内解析失敗'}。予備のPDF解析も利用できませんでした。`);throw err;}
  // Disable workers to avoid worker CDN/version mismatches on PWA updates.
  let pdf;
  try{pdf=await lib.getDocument({data,disableWorker:true,useSystemFonts:true}).promise;}
@@ -119,12 +132,15 @@ async function readPDF(file){
   for(const item of content.items){const txt=String(item.str||'').trim();if(!txt)continue;const x=item.transform[4],y=item.transform[5];let group=groups.find(g=>Math.abs(g.y-y)<2.2);if(!group){group={y,items:[]};groups.push(group);}group.items.push({x,txt});}
   groups.sort((a,b)=>b.y-a.y);for(const g of groups){g.items.sort((a,b)=>a.x-b.x);lines.push(g.items.map(v=>v.txt).join(' '));}
  }
- const res=parsePDFLines(lines);res.pdfPages=pdf.numPages;res.reader='PDF.js文字抽出';return res;
+ let res;
+ try{res=parsePDFLines(lines);}
+ catch(err){throw Error((localError?`${localError.readerDiagnostics||'端末内解析'}。`:'')+`標準PDF解析: ${err.message}`);}
+ res.pdfPages=pdf.numPages;res.reader='PDF.js文字抽出';return res;
 }
 async function readText(file){const data=await file.arrayBuffer();const bytes=new Uint8Array(data),isUtf8=(()=>{try{new TextDecoder('utf-8',{fatal:true}).decode(bytes);return true;}catch{return false;}})();return new TextDecoder(isUtf8?'utf-8':'shift_jis').decode(bytes);}
 async function parseFile(file){if(!file||file.size<=0)throw Error('空のファイルです');if(file.size>8*1024*1024)throw Error('ファイルの上限は8MBです');const name=file.name.toLowerCase();let result;if(name.endsWith('.pdf'))result=await readPDF(file);else if(name.endsWith('.csv')||name.endsWith('.tsv')||name.endsWith('.txt'))result=parseCardCSV(parseCSV(await readText(file)));else throw Error('対応形式はPDFとCSVです。Excelの明細はCSVとして保存してから選択してください。');
  const digest=await crypto.subtle.digest('SHA-256',await file.arrayBuffer());result.hash=[...new Uint8Array(digest)].map(b=>b.toString(16).padStart(2,'0')).join('');result.filename=file.name;result.entries=result.entries.map((e,i)=>({...e,uid:result.hash.slice(0,20)+':'+i}));return result;}
 function monthTotals(entries){const months={};for(const e of entries){const m=e.date.slice(0,7);const x=months[m]||(months[m]={month:m,spend:0,unknown:0,transactions:0,category:{},income:0,excluded:0});x.transactions++;const n=Number(e.amount)||0;if(e.category==='income')x.income+=n;else if(e.sourceType==='bank'){x.unknown++;}else if(expenseKeys.has(e.category)){x.spend+=n;x.category[e.category]=(x.category[e.category]||0)+n;}else if(e.category==='unknown')x.unknown++;else x.excluded+=n;}return Object.values(months).sort((a,b)=>b.month.localeCompare(a.month));}
-root.MMYImporter={categories,labels,expenseKeys,excludedKeys,normalize,clean,dateFrom,amt,classify,parseCSV,parseCardCSV,parsePDFLines,readRakutenSVF,readText,parseFile,monthTotals};
+root.MMYImporter={version:'1.6',categories,labels,expenseKeys,excludedKeys,normalize,clean,dateFrom,amt,classify,parseCSV,parseCardCSV,parsePDFLines,readRakutenSVF,readText,parseFile,monthTotals};
 if(typeof module!=='undefined'&&module.exports)module.exports=root.MMYImporter;
 })(typeof window!=='undefined'?window:globalThis);

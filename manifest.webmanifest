@@ -1,7 +1,7 @@
 {
-  "name": "MY MONEY｜2026年12月からの成果と家計改善",
+  "name": "MY MONEY｜2026年11月からの成果と家計改善",
   "short_name": "MY MONEY",
-  "description": "2026年12月からの返済・家計改善と明細ファイルの自動取込を端末内で暗号化管理",
+  "description": "2026年11月からの返済・家計改善と明細ファイルの自動取込を端末内で暗号化管理",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
